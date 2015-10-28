@@ -30,6 +30,8 @@ public class ReservaHotel {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Menu ob = new Menu();
+        ob.setVisible(true);
     }
     
 }
