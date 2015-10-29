@@ -16,6 +16,16 @@ public class Hotel  {
     String direccio;
     String valoracio;
     String ofertes;
+    Ubicacio ubicacio;
+
+    public Hotel(String nom, int estrelles, String direccio, String valoracio, String ofertes, Ubicacio ubicacio) {
+        this.nom = nom;
+        this.estrelles = estrelles;
+        this.direccio = direccio;
+        this.valoracio = valoracio;
+        this.ofertes = ofertes;
+        this.ubicacio = ubicacio;
+    }
     
     public String getNom() {
         return nom;
@@ -64,7 +74,7 @@ public class Hotel  {
         this.valoracio = valoracio;
         this.ofertes = ofertes;
     }
-
+    
       
     
 }
