@@ -14,7 +14,7 @@ public class Reserva {
     Date dataEntrada;
     Date dataSurtida;
     Date dataReserva;
-    boolean activa;
+    boolean activa;  
     double preuReserva;
     
     
