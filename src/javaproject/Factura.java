@@ -77,7 +77,7 @@ public class Factura {
         this.total = total;
     }
     public double calculaFactura(){
-        
+        total = recarrec + costServei;
         return total;
     }
 }

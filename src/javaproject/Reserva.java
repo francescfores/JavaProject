@@ -5,6 +5,8 @@
  */
 package javaproject;
 import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.text.ParseException;
 /**
  *
  * @author francesc
@@ -15,8 +17,9 @@ public class Reserva {
     Date dataSurtida;
     Date dataReserva;
     boolean activa;  
-    double preuReserva;
+    long preuReserva;
     
+        
     
     public Date getDataEntrada() {
         return dataEntrada;
@@ -54,13 +57,44 @@ public class Reserva {
         return preuReserva;
     }
 
-    public void setPreuReserva(double preuReserva) {
-        this.preuReserva = preuReserva;
+    public void setPreuReserva(long preuReserva) {
+        
+    //this.preuReserva = calculapreu(Date ("2015/05/05"));
     }
 
     
-    public int calculapreu(){
-        return 0;
+    static public int calculapreu(Date dataEntrada, Date dataSurtida){
+        
+        long diff = dataSurtida.getTime() - dataEntrada.getTime();
+        long dies_reserva = diff / (1000 * 60 * 60 * 24);
+        return (int) dies_reserva;
+
+
+        //long dies_reserva;
+        //SimpleDateFormat formateador = new SimpleDateFormat("yyyyMMdd");
+        //formateador.parse("2012/12/31");
+         //dies_reserva= ( dataEntrada.getTime() - dataSurtida.getTime() );
+        
+        
+        
+        
+        
 }
-    
+    /* public static void main(String[] args) {
+         String data1="2015/05/05";
+         
+         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        Date fechaDate = null;
+        try {
+            fechaDate = formato.parse(data1);
+        } 
+        catch (ParseException ex) 
+        {
+            System.out.println(ex);
+        }
+        
+        System.out.print(fechaDate);
+         
+        
+     }*/
 }
