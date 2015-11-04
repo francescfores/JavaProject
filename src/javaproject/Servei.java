@@ -11,56 +11,29 @@ package javaproject;
  */
 public class Servei {
 
+   
+    String nom;
+    double cost;
     
-    double cangur;
-    double neteja;
-    double  botons;
-    double fisio;
-    double buffet;
-    public double getCangur() {
-        return cangur;
+    public Servei(String nom, double cost) {
+        this.nom = nom;
+        this.cost = cost;
+    }
+    
+public String getNom() {
+        return nom;
     }
 
-    public void setCangur(double cangur) {
-        this.cangur = cangur;
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
-    public double getNeteja() {
-        return neteja;
+    public double getCost() {
+        return cost;
     }
 
-    public void setNeteja(double neteja) {
-        this.neteja = neteja;
+    public void setCost(double cost) {
+        this.cost = cost;
     }
-
-    public double getBotons() {
-        return botons;
-    }
-
-    public void setBotons(double botons) {
-        this.botons = botons;
-    }
-
-    public double getFisio() {
-        return fisio;
-    }
-
-    public void setFisio(double fisio) {
-        this.fisio = fisio;
-    }
-
-    public double getBuffet() {
-        return buffet;
-    }
-
-    public void setBuffet(double buffet) {
-        this.buffet = buffet;
-    }
-    public Servei(double cangur, double neteja, double botons, double fisio, double buffet) {
-        this.cangur = cangur;
-        this.neteja = neteja;
-        this.botons = botons;
-        this.fisio = fisio;
-        this.buffet = buffet;
-    }
+     
 }
