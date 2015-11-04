@@ -3,11 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
+            <file>file:/home/sergi/Code/JavaProject/src/javaproject/Factura.java</file>
+            <file>file:/home/sergi/Code/JavaProject/src/javaproject/Hotel.java</file>
+            <file>file:/home/sergi/Code/JavaProject/src/javaproject/Menu.java</file>
+            <file>file:/home/sergi/Code/JavaProject/src/javaproject/ReservaHotel.java</file>
+            <file>file:/home/sergi/Code/JavaProject/src/javaproject/Habitacio.java</file>
+            <file>file:/home/sergi/Code/JavaProject/src/javaproject/Servei.java</file>
+=======
             <file>file:/home/francesc/Code/javaProject/src/javaproject/Client.java</file>
             <file>file:/home/francesc/Code/javaProject/src/javaproject/Reserva.java</file>
             <file>file:/home/francesc/Code/javaProject/src/javaproject/Ubicacio.java</file>
             <file>file:/home/francesc/Code/javaProject/src/javaproject/Menu.java</file>
             <file>file:/home/francesc/Code/javaProject/src/javaproject/Hotel.java</file>
+>>>>>>> a9b115f0d190bc41f0eb491cc70facfed9a1abb5
         </group>
     </open-files>
 </project-private>
