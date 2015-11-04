@@ -63,7 +63,7 @@ public class Reserva {
     }
 
     
-    static public int calculapreu(Date dataEntrada, Date dataSurtida){
+    static public int calculapreu(String dataEntrada, String dataSurtida){
         
         long diff = dataSurtida.getTime() - dataEntrada.getTime();
         long dies_reserva = diff / (1000 * 60 * 60 * 24);
@@ -80,13 +80,13 @@ public class Reserva {
         
         
 }
-    /* public static void main(String[] args) {
+     public static void main(String[] args) {
          String data1="2015/05/05";
          
-         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+         SimpleDateFormat dataEntradaFormatada = new SimpleDateFormat("dd/MM/yyyy");
         Date fechaDate = null;
         try {
-            fechaDate = formato.parse(data1);
+            fechaDate = dataEntradaFormatada.parse(data1);
         } 
         catch (ParseException ex) 
         {
@@ -96,5 +96,5 @@ public class Reserva {
         System.out.print(fechaDate);
          
         
-     }*/
+     }
 }
