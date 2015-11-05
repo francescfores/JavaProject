@@ -59,42 +59,45 @@ public class Reserva {
 
     public void setPreuReserva(long preuReserva) {
         
-    //this.preuReserva = calculapreu(Date ("2015/05/05"));
+    //this.preuReserva = calculaData("22/06/2015","23/06/1994");
     }
 
     
-    static public int calculapreu(String dataEntrada, String dataSurtida){
+    static public int calculaData(String dataEntrada, String dataSurtida){
         
-        long diff = dataSurtida.getTime() - dataEntrada.getTime();
+       Date dataEntradaFormatada = transformaData(dataEntrada);
+       Date dataSurtidaFormatada = transformaData(dataSurtida);
+        
+        long diff = dataSurtidaFormatada.getTime() - dataEntradaFormatada.getTime();
         long dies_reserva = diff / (1000 * 60 * 60 * 24);
         return (int) dies_reserva;
 
 
-        //long dies_reserva;
-        //SimpleDateFormat formateador = new SimpleDateFormat("yyyyMMdd");
-        //formateador.parse("2012/12/31");
-         //dies_reserva= ( dataEntrada.getTime() - dataSurtida.getTime() );
         
         
-        
-        
-        
-}
-     public static void main(String[] args) {
-         String data1="2015/05/05";
-         
-         SimpleDateFormat dataEntradaFormatada = new SimpleDateFormat("dd/MM/yyyy");
+    }
+   static public Date transformaData (String data){
+       
+       SimpleDateFormat dataEntradaFormatada = new SimpleDateFormat("dd/MM/yyyy");
         Date fechaDate = null;
         try {
-            fechaDate = dataEntradaFormatada.parse(data1);
+            fechaDate = dataEntradaFormatada.parse(data);
         } 
         catch (ParseException ex) 
         {
             System.out.println(ex);
         }
         
-        System.out.print(fechaDate);
-         
         
-     }
+         
+       
+       
+       return fechaDate;
+   }    
+        
+     public static void main(String[] args) {
+         System.out.print(calculaData("26/10/2015","05/11/2015"));
+     }   
 }
+     
+
