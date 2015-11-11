@@ -12,12 +12,19 @@ import java.text.ParseException;
  * @author francesc
  */
 
-public class Reserva {
+public class Reserva extends Habitacio {
     Date dataEntrada;
     Date dataSurtida;
     Date dataReserva;
     boolean activa;  
     long preuReserva;
+
+    
+    public Reserva(String estat, double preu, int numero, int capacitat, String[] serveis) {
+        super(estat, preu, numero, capacitat, serveis);
+    }
+
+    
     
         
     
@@ -95,9 +102,7 @@ public class Reserva {
        return fechaDate;
    }    
         
-     public static void main(String[] args) {
-         System.out.print(calculaData("26/10/2015","05/11/2015"));
-     }   
+       
 }
      
 
