@@ -14,20 +14,11 @@ public class Habitacio {
         int numero;
         int capacitat;  
         String serveis[];
-
-    
-        
-    public Habitacio(double preu, int numero, int capacitat) {
-        this.preu = preu;
-        this.numero = numero;
-        this.capacitat = capacitat;
-    }
-    
-    
+ 
     
     
 
-    public Habitacio(String estat, double preu, int numero, int capacitat, boolean servei) {
+    public Habitacio(String estat, double preu, int numero, int capacitat, String serveis[]) {
        
         this.preu = preu;
         this.numero = numero;
@@ -69,7 +60,7 @@ public class Habitacio {
         this.serveis = serveis;
     }
     
-    private void serveis() {
+    private void Serveis() {
         serveis[0]= "Cangur";
         serveis[1]= "Jacuzzi";
         serveis[2]= "Servei habitacions";
