@@ -12,7 +12,6 @@ package javaproject;
 public class Ubicacio {
     
         String pais;
-        String localitat;
         String poblacio;    
         int codiPostal;
         public Ubicacio(){
@@ -21,7 +20,6 @@ public class Ubicacio {
         
     public Ubicacio(String pais, String localitat, String poblacio, int codiPostal) {
         this.pais = pais;
-        this.localitat = localitat;
         this.poblacio = poblacio;
         this.codiPostal = codiPostal;
     }       
@@ -32,14 +30,6 @@ public class Ubicacio {
 
     public void setPais(String pais) {
         this.pais = pais;
-    }
-
-    public String getLocalitat() {
-        return localitat;
-    }
-
-    public void setLocalitat(String localitat) {
-        this.localitat = localitat;
     }
 
     public String getPoblacio() {

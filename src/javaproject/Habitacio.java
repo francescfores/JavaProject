@@ -10,28 +10,33 @@ package javaproject;
  * @author sergi
  */
 public class Habitacio {
-    
-    String estat;
-    double preu;
-    int numero;
-    int capacitat;
-    boolean servei;
+        double preu;
+        int numero;
+        int capacitat;  
+        String serveis[];
 
-    public Habitacio(String estat, double preu, int numero, int capacitat, boolean servei) {
-        this.estat = estat;
+    
+        
+    public Habitacio(double preu, int numero, int capacitat) {
         this.preu = preu;
         this.numero = numero;
         this.capacitat = capacitat;
-        this.servei = servei;
     }
     
-    public String getEstat() {
-        return estat;
-    }
+    
+    
+    
 
-    public void setEstat(String estat) {
-        this.estat = estat;
+    public Habitacio(String estat, double preu, int numero, int capacitat, boolean servei) {
+       
+        this.preu = preu;
+        this.numero = numero;
+        this.capacitat = capacitat;
+        this.serveis = serveis;
+   
     }
+    
+    
 
     public double getPreu() {
         return preu;
@@ -56,15 +61,21 @@ public class Habitacio {
     public void setCapacitat(int capacitat) {
         this.capacitat = capacitat;
     }
-
-    public boolean isServei() {
-        return servei;
+    public String[] getServeis() {
+        return serveis;
     }
 
-    public void setServei(boolean servei) {
-        this.servei = servei;
+    public void setServeis(String[] serveis) {
+        this.serveis = serveis;
     }
     
+    private void serveis() {
+        serveis[0]= "Cangur";
+        serveis[1]= "Jacuzzi";
+        serveis[2]= "Servei habitacions";
+        serveis[3]= "Botons";
+        serveis[4]= "Massatge";
+}
     
     
 }
