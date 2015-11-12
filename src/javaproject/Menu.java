@@ -35,7 +35,7 @@ public class Menu extends javax.swing.JFrame {
         initComponents();
         fitxer();
     }
-        private void fitxer() throws IOException {
+    private void fitxer() throws IOException {
         //jButton8.setVisible(false);
         if (!llegit & f.exists()) {
                         //LLegim el contingut del fitxer i ho guardem al vector
