@@ -21,12 +21,60 @@ import java.io.ObjectOutputStream;
  * @author francesc
  */
 public class Menu extends javax.swing.JFrame {
-
+    
+    private static final int DIM = 5;
+    boolean llegit = false;                 // Indica si s'ha llegit o no el fitxer de llista
+    static int index = 0;                   // Opció de menú triada
+    File f = new File("dades.dat");         // El fitxer físic se diu "dades.dat". Si no s'especifica cap directori s'usa el del projecte. 
+    static Client[] llista = new Client[DIM];
+    
     /**
      * Creates new form Menu
      */
-    public Menu() {
+    public Menu() throws IOException {
         initComponents();
+        fitxer();
+    }
+        private void fitxer() throws IOException {
+        //jButton8.setVisible(false);
+        if (!llegit & f.exists()) {
+                        //LLegim el contingut del fitxer i ho guardem al vector
+
+                        //Declarem el fluxe d'entrada
+                        ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(f));
+
+                        //Índex per recorrer el vector inicialitzat a -1
+                        index = -1;
+
+                        //El bucle finalitzarà quan haguem llegit tot el fitxer
+                        while (true) {
+                            try {
+                                llista[++index] = (Client) entrada.readObject();
+                            } //Si arribem al final del vector ho indiquem, decrementem l'índex i sortim del bucle infinit
+                            catch (ArrayIndexOutOfBoundsException ex) {
+                                System.err.println("No cap tot el fitxer dins al vector!!");
+                                index--;
+                                break;
+                            } //Quan arribem al final del fitxer sortim del bucle infinit
+                            catch (Exception ex) {
+                                index--;
+                                break;
+                            }
+                        }
+                        //Molt important!!. S'ha de tancar el fitxer.
+                        entrada.close();
+                        System.out.println("Fitxer llegit correctament!!");
+                    } else {
+
+                        System.out.println("El fitxer ja s'ha llegit o encara no existeix!!");
+                        index = -1;
+                    }
+                    //Anotem que hem llegit el fitxer
+                    llegit = true;
+
+        //Anotem que hem llegit el fitxer
+        llegit = true;
+        
     }
 
     /**
@@ -43,6 +91,7 @@ public class Menu extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jToggleButton2 = new javax.swing.JToggleButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,6 +115,13 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Admin");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -82,7 +138,10 @@ public class Menu extends javax.swing.JFrame {
                             .addComponent(jLabel1)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(121, 121, 121)
-                        .addComponent(jToggleButton2)))
+                        .addComponent(jToggleButton2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -95,7 +154,9 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jToggleButton2)
-                .addContainerGap(210, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 169, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -130,6 +191,16 @@ public class Menu extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jToggleButton2ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Admin ob = null;
+        try {
+            ob = new Admin();
+        } catch (Exception ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }       
+        ob.setVisible(true);                  
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -160,12 +231,17 @@ public class Menu extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Menu().setVisible(true);
+                try {
+                    new Menu().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
