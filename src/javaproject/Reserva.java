@@ -20,7 +20,9 @@ public class Reserva extends Habitacio {
     Date dataReserva;
     boolean activa;  
     long preuReserva;
-
+    
+   
+    
     
    public Reserva(Date dataEntrada, Date dataSurtida, Date dataReserva, boolean activa, long preuReserva, String estat, double preu, int numero, int capacitat, String[] serveis) {
         super(estat, preu, numero, capacitat, serveis);
@@ -31,7 +33,8 @@ public class Reserva extends Habitacio {
         this.preuReserva = preuReserva;
     }
     
-    
+     
+
         
     
     public Date getDataEntrada() {
@@ -74,7 +77,8 @@ public class Reserva extends Habitacio {
         
     //this.preuReserva = calculaData("22/06/2015","23/06/1994");
     }
-
+    
+     
     
     static public int calculaData(String dataEntrada, String dataSurtida){
         
@@ -107,7 +111,8 @@ public class Reserva extends Habitacio {
        
        return fechaDate;
    }    
-        
+    
+ 
        
 }
      

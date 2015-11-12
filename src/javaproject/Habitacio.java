@@ -14,7 +14,6 @@ public class Habitacio {
         int numero;
         int capacitat;  
         String serveis[];
- 
     
     
 
