@@ -59,12 +59,8 @@ public class Habitacio {
         this.serveis = serveis;
     }
     
+    
     private void Serveis() {
-        serveis[0]= "Cangur";
-        serveis[1]= "Jacuzzi";
-        serveis[2]= "Servei habitacions";
-        serveis[3]= "Botons";
-        serveis[4]= "Massatge";
 }
     
     

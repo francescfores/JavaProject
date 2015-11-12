@@ -21,7 +21,7 @@ import java.io.ObjectOutputStream;
  * @author francesc
  */
 public class Menu extends javax.swing.JFrame {
-    
+    static Servei[] serveis=new Servei[5]; 
     private static final int DIM = 5;
     boolean llegit = false;                 // Indica si s'ha llegit o no el fitxer de llista
     static int index = 0;                   // Opció de menú triada
@@ -33,6 +33,11 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() throws IOException {
         initComponents();
+        serveis[0]=new Servei("Cangur",50.00);
+        serveis[1]=new Servei("Botons",25.00);
+        serveis[2]=new Servei("Fisio",40.00);
+        serveis[3]=new Servei("Jacuzzi",60.00);
+        serveis[4]=new Servei("Despertador",20.00);
         fitxer();
     }
         private void fitxer() throws IOException {

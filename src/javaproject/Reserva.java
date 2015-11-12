@@ -112,7 +112,17 @@ public class Reserva extends Habitacio {
        return fechaDate;
    }    
     
- 
+ public double calculaPreu (String dataEntrada, String dataSurtida, 
+         String[] serveis, double preuHabitacio){
+     
+     
+     int diesReserva=calculaData(dataEntrada, dataSurtida);
+     double preuDiesHabitacio= diesReserva*preuHabitacio;
+     
+     
+     
+     return preuReserva;
+ }
        
 }
      
