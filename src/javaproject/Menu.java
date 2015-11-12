@@ -25,8 +25,8 @@ public class Menu extends javax.swing.JFrame {
     private static final int DIM = 5;
     boolean llegit = false;                 // Indica si s'ha llegit o no el fitxer de llista
     static int index = 0;                   // Opció de menú triada
-    File f = new File("dades.dat");         // El fitxer físic se diu "dades.dat". Si no s'especifica cap directori s'usa el del projecte. 
-    static Client[] llista = new Client[DIM];
+    File fhotels = new File("dades.dat");         // El fitxer físic se diu "dades.dat". Si no s'especifica cap directori s'usa el del projecte. 
+    static Hotel[] llista = new Hotel[DIM];
     
     /**
      * Creates new form Menu
@@ -42,11 +42,11 @@ public class Menu extends javax.swing.JFrame {
     }
     private void fitxer() throws IOException {
         //jButton8.setVisible(false);
-        if (!llegit & f.exists()) {
+        if (!llegit & fhotels.exists()) {
                         //LLegim el contingut del fitxer i ho guardem al vector
 
                         //Declarem el fluxe d'entrada
-                        ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(f));
+                        ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(fhotels));
 
                         //Índex per recorrer el vector inicialitzat a -1
                         index = -1;
@@ -54,7 +54,7 @@ public class Menu extends javax.swing.JFrame {
                         //El bucle finalitzarà quan haguem llegit tot el fitxer
                         while (true) {
                             try {
-                                llista[++index] = (Client) entrada.readObject();
+                                llista[++index] = (Hotel) entrada.readObject();
                             } //Si arribem al final del vector ho indiquem, decrementem l'índex i sortim del bucle infinit
                             catch (ArrayIndexOutOfBoundsException ex) {
                                 System.err.println("No cap tot el fitxer dins al vector!!");

@@ -17,7 +17,9 @@ public class Hotel  {
     String valoracio;
     String ofertes;
     Ubicacio ubicacio;
-
+    public Hotel(){
+        
+    }
     public Hotel(String nom, int estrelles, String direccio, String valoracio, String ofertes, Ubicacio ubicacio) {
         this.nom = nom;
         this.estrelles = estrelles;
