@@ -12,9 +12,7 @@ import java.util.Date;
  * @author francesc
  */
 public class Client extends Ubicacio {
-
-    
-       
+  
     String nom;
     String cognoms;
     String dni;
@@ -28,6 +26,13 @@ public class Client extends Ubicacio {
         this.email = email;
         this.data_naixement = data_naixement;
         this.poblacio = poblacio;
+    }
+    
+    public Client(String nom, String cognoms, String dni, String email) {
+        this.nom = nom;
+        this.cognoms = cognoms;
+        this.dni = dni;
+        this.email = email;
     }
 
     

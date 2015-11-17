@@ -21,93 +21,97 @@ import java.io.ObjectOutputStream;
  * @author francesc
  */
 public class Menu extends javax.swing.JFrame {
-    static Servei[] serveis=new Servei[5]; 
-    private static final int DIM = 5;
-    boolean llegit = false;                 // Indica si s'ha llegit o no el fitxer de llista
-    static int index = 0;                   // Opció de menú triada
+
+    public static int getIndexhotels() {
+        return indexhotels;
+    }
+
+    public static void setIndexhotels(int indexhotels) {
+        Menu.indexhotels = indexhotels;
+    }
+
+    public static int getIndexhabitacions() {
+        return indexhabitacions;
+    }
+
+    public static void setIndexhabitacions(int indexhabitacions) {
+        Menu.indexhabitacions = indexhabitacions;
+    }
+
+    public static int getIndexclients() {
+        return indexclients;
+    }
+
+    public static void setIndexclients(int indexclients) {
+        Menu.indexclients = indexclients;
+    }
+
+    private static final int DIM = 20;
+    boolean llegit = false;                       // Indica si s'ha llegit o no el fitxer de llista
+    static int indexhotels = -1;
+    static int indexhabitacions = -1;
+    static int indexclients = -1;
+
     File fhotels = new File("dades.dat");         // El fitxer físic se diu "dades.dat". Si no s'especifica cap directori s'usa el del projecte. 
-    static Hotel[] llista = new Hotel[DIM];
-    
+
+    static Hotel[] hotels = new Hotel[DIM];
+    static Habitacio[] habitacions = new Habitacio[DIM];
+    static Servei[] serveis = new Servei[DIM];
+    static Client[] clients = new Client[DIM];
+    static Ubicacio[] ubicacions = new Ubicacio[DIM];
+
     /**
      * Creates new form Menu
      */
     public Menu() throws IOException {
         initComponents();
-        serveis[0]=new Servei("Cangur",50.00);
-        serveis[1]=new Servei("Botons",25.00);
-        serveis[2]=new Servei("Fisio",40.00);
-        serveis[3]=new Servei("Jacuzzi",60.00);
-        serveis[4]=new Servei("Despertador",20.00);
-        
-        fitxer();
+         serveis[0]=new Servei("Cangur",50);
+         serveis[1]=new Servei("Botons",25);
+         serveis[2]=new Servei("Fisio",40);
+         serveis[3]=new Servei("Jacuzzi",60);
+         serveis[4]=new Servei("Despertador",20);  
     }
+
     private void fitxer() throws IOException {
         //jButton8.setVisible(false);
         if (!llegit & fhotels.exists()) {
                         //LLegim el contingut del fitxer i ho guardem al vector
 
-                        //Declarem el fluxe d'entrada
-                        ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(fhotels));
+            //Declarem el fluxe d'entrada
+            ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(fhotels));
 
-                        //Índex per recorrer el vector inicialitzat a -1
-                        index = -1;
+            //Índex per recorrer el vector inicialitzat a -1
+            indexhotels = -1;
 
-                        //El bucle finalitzarà quan haguem llegit tot el fitxer
-                        while (true) {
-                            try {
-                                llista[++index] = (Hotel) entrada.readObject();
-                            } //Si arribem al final del vector ho indiquem, decrementem l'índex i sortim del bucle infinit
-                            catch (ArrayIndexOutOfBoundsException ex) {
-                                System.err.println("No cap tot el fitxer dins al vector!!");
-                                index--;
-                                break;
-                            } //Quan arribem al final del fitxer sortim del bucle infinit
-                            catch (Exception ex) {
-                                index--;
-                                break;
-                            }
-                        }
-                        //Molt important!!. S'ha de tancar el fitxer.
-                        entrada.close();
-                        System.out.println("Fitxer llegit correctament!!");
-                    } else {
+            //El bucle finalitzarà quan haguem llegit tot el fitxer
+            while (true) {
+                try {
+                    hotels[++indexhotels] = (Hotel) entrada.readObject();
+                } //Si arribem al final del vector ho indiquem, decrementem l'índex i sortim del bucle infinit
+                catch (ArrayIndexOutOfBoundsException ex) {
+                    System.err.println("No cap tot el fitxer dins al vector!!");
+                    indexhotels--;
+                    break;
+                } //Quan arribem al final del fitxer sortim del bucle infinit
+                catch (Exception ex) {
+                    indexhotels--;
+                    break;
+                }
+            }
+            //Molt important!!. S'ha de tancar el fitxer.
+            entrada.close();
+            System.out.println("Fitxer llegit correctament!!");
+        } else {
 
-                        System.out.println("El fitxer ja s'ha llegit o encara no existeix!!");
-                        index = -1;
-                    }
-                    //Anotem que hem llegit el fitxer
-                    llegit = true;
+            System.out.println("El fitxer ja s'ha llegit o encara no existeix!!");
+            indexhotels = -1;
+        }
+        //Anotem que hem llegit el fitxer
+        llegit = true;
 
         //Anotem que hem llegit el fitxer
         llegit = true;
-        
-    }
-    public boolean isLlegit() {
-        return llegit;
-    }
 
-    public void setLlegit(boolean llegit) {
-        this.llegit = llegit;
-    }
-
-    public int getIndex() {
-        return index;
-    }
-
-    public void setIndex(int index) {
-        this.index = index;
-    }
-
-    public File getFhotels() {
-        return fhotels;
-    }
-
-    public void setF(File fhotels) {
-        this.fhotels = fhotels;
-    }
-
-    public Hotel[] getLlista() {
-        return llista;
     }
 
     /**
@@ -250,7 +254,7 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-       // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
@@ -260,8 +264,8 @@ public class Menu extends javax.swing.JFrame {
             ob = new Resultat();
         } catch (Exception ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-        }       
-        ob.setVisible(true);                                         
+        }
+        ob.setVisible(true);
 
     }//GEN-LAST:event_jToggleButton2ActionPerformed
 
@@ -271,8 +275,8 @@ public class Menu extends javax.swing.JFrame {
             ob = new Admin();
         } catch (Exception ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-        }       
-        ob.setVisible(true);                  
+        }
+        ob.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -283,9 +287,9 @@ public class Menu extends javax.swing.JFrame {
             sortida = new ObjectOutputStream(new FileOutputStream(fhotels));
 
             //Recorrem el vector i guardem els elements al fitxer de sortida
-            for (int i = 0; i <= index; i++) {
+            for (int i = 0; i <= indexhotels; i++) {
                 try {
-                    sortida.writeObject(llista[i]);
+                    sortida.writeObject(hotels[i]);
                 } catch (Exception ex) {
                     break;
                 }
@@ -299,11 +303,11 @@ public class Menu extends javax.swing.JFrame {
             try {
                 sortida.close();
                 jTextField1.setText("Fitxer guardat correctament!!");
-                
+
             } catch (IOException ex) {
                 jTextField1.setText("Error en guardar les dades!!");
             }
-            
+
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 

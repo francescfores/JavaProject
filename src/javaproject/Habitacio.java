@@ -10,29 +10,35 @@ package javaproject;
  * @author sergi
  */
 public class Habitacio {
-        double preu;
+        int preu;
         int numero;
         int capacitat;  
-        String serveis[];
+        String serveis;
     
     
 
-    public Habitacio(String estat, double preu, int numero, int capacitat, String serveis[]) {
+    public Habitacio(int preu, int numero, int capacitat, String serveis) {
        
         this.preu = preu;
         this.numero = numero;
         this.capacitat = capacitat;
         this.serveis = serveis;
-   
     }
+
+    Habitacio(int preu, int numero, int capacitat, String string, double cost) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+
+ 
     
     
 
-    public double getPreu() {
+    public int getPreu() {
         return preu;
     }
 
-    public void setPreu(double preu) {
+    public void setPreu(int preu) {
         this.preu = preu;
     }
 
@@ -51,11 +57,11 @@ public class Habitacio {
     public void setCapacitat(int capacitat) {
         this.capacitat = capacitat;
     }
-    public String[] getServeis() {
+    public String getServeis() {
         return serveis;
     }
 
-    public void setServeis(String[] serveis) {
+    public void setServeis(String serveis) {
         this.serveis = serveis;
     }
     

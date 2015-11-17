@@ -12,7 +12,15 @@ import java.text.ParseException;
  * @author francesc
  */
 
-public class Reserva extends Habitacio {
+public class Reserva /*extends Habitacio*/ {
+
+    public Reserva(Date dataEntrada, Date dataSurtida, Date dataReserva, boolean activa, long preuReserva) {
+        this.dataEntrada = dataEntrada;
+        this.dataSurtida = dataSurtida;
+        this.dataReserva = dataReserva;
+        this.activa = activa;
+        this.preuReserva = preuReserva;
+    }
 
     
     Date dataEntrada;
@@ -24,14 +32,7 @@ public class Reserva extends Habitacio {
    
     
     
-   public Reserva(Date dataEntrada, Date dataSurtida, Date dataReserva, boolean activa, long preuReserva, String estat, double preu, int numero, int capacitat, String[] serveis) {
-        super(estat, preu, numero, capacitat, serveis);
-        this.dataEntrada = dataEntrada;
-        this.dataSurtida = dataSurtida;
-        this.dataReserva = dataReserva;
-        this.activa = activa;
-        this.preuReserva = preuReserva;
-    }
+
     
      
 

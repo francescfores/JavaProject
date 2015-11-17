@@ -13,9 +13,9 @@ public class Servei {
 
    
     String nom;
-    double cost;
+    int cost;
     
-    public Servei(String nom, double cost) {
+    public Servei(String nom, int cost) {
         this.nom = nom;
         this.cost = cost;
     }
@@ -28,11 +28,11 @@ public String getNom() {
         this.nom = nom;
     }
 
-    public double getCost() {
+    public int getCost() {
         return cost;
     }
 
-    public void setCost(double cost) {
+    public void setCost(int cost) {
         this.cost = cost;
     }
      
