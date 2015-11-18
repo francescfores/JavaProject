@@ -52,7 +52,7 @@ public class Menu extends javax.swing.JFrame {
     static int indexhotels = -1;
     static int indexhabitacions = -1;
     static int indexclients = -1;
-
+    
     File fhotels = new File("dades.dat");         // El fitxer físic se diu "dades.dat". Si no s'especifica cap directori s'usa el del projecte. 
 
     //cambiar a arraylist
