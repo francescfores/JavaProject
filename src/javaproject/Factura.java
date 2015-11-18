@@ -4,12 +4,13 @@
  * and open the template in the editor.
  */
 package javaproject;
+import java.io.Serializable;
 import java.util.Date;
 /**
  *
  * @author sergi
  */
-public class Factura {
+public class Factura implements Serializable {
 
     
 

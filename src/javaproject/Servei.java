@@ -5,11 +5,13 @@
  */
 package javaproject;
 
+import java.io.Serializable;
+
 /**
  *
  * @author sergi
  */
-public class Servei {
+public class Servei implements Serializable{
 
    
     String nom;

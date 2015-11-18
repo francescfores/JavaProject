@@ -712,6 +712,7 @@ public class Admin extends javax.swing.JFrame {
         } catch (java.lang.NumberFormatException e) {
             jTextField2.setText("Les estrelles introduides no són valida torna-ho a probar!!!");
         }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed

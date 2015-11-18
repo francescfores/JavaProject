@@ -5,11 +5,13 @@
  */
 package javaproject;
 
+import java.io.Serializable;
+
 /**
  *
  * @author francesc
  */
-public class Ubicacio {
+public class Ubicacio implements Serializable{
     
         String pais;
         String poblacio;    

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package javaproject;
+import java.io.Serializable;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
@@ -12,7 +13,7 @@ import java.text.ParseException;
  * @author francesc
  */
 
-public class Reserva /*extends Habitacio*/ {
+public class Reserva implements Serializable /*extends Habitacio*/ {
 
     public Reserva(Date dataEntrada, Date dataSurtida, Date dataReserva, boolean activa, long preuReserva) {
         this.dataEntrada = dataEntrada;

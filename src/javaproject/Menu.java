@@ -88,11 +88,11 @@ public class Menu extends javax.swing.JFrame {
 
             //Índex per recorrer el vector inicialitzat a -1
             indexhotels = -1;
-
+            
             //El bucle finalitzarà quan haguem llegit tot el fitxer
             while (true) {
                 try {
-                    hotels[++indexhotels] = (Hotel) entrada.readObject();
+                    Menu.hotels[++indexhotels] = (Hotel) entrada.readObject();
                 } //Si arribem al final del vector ho indiquem, decrementem l'índex i sortim del bucle infinit
                 catch (ArrayIndexOutOfBoundsException ex) {
                     System.err.println("No cap tot el fitxer dins al vector!!");
@@ -292,10 +292,10 @@ public class Menu extends javax.swing.JFrame {
             sortida = new ObjectOutputStream(new FileOutputStream(fhotels));
 
             //Recorrem el vector i guardem els elements al fitxer de sortida
-            Menu.setIndexhotels(0);
+            
             for (int i = 0; i <= indexhotels; i++) {
                 try {
-                    sortida.writeObject(Menu.hotels[Menu.getIndexhotels()]);
+                    sortida.writeObject(Menu.hotels[i]);
                 } catch (Exception ex) {
                     break;
                 }

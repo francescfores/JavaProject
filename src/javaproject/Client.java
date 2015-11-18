@@ -5,13 +5,14 @@
  */
 package javaproject;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  *
  * @author francesc
  */
-public class Client extends Ubicacio {
+public class Client extends Ubicacio implements Serializable{
   
     String nom;
     String cognoms;
@@ -34,10 +35,7 @@ public class Client extends Ubicacio {
         this.dni = dni;
         this.email = email;
     }
-
-    
-    
-    
+   
     public String getNom() {
         return nom;
     }
