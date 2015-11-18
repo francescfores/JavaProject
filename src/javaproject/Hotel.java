@@ -5,11 +5,13 @@
  */
 package javaproject;
 
+import java.io.Serializable;
+
 /**
  *
  * @author francesc
  */
-public class Hotel  {
+public class Hotel implements Serializable {
         
     String nom;
     int estrelles;

@@ -54,7 +54,6 @@ public class AdminLlista extends javax.swing.JFrame {
         Menu.setIndexhabitacions(0);
         while (Menu.habitacions[Menu.indexhabitacions] != null) {
             //creem la llista amb els seus components
-
             Object[] filahabitacions
                     = {
                         Integer.toString(Menu.habitacions[Menu.getIndexhabitacions()].getPreu()),
@@ -62,34 +61,25 @@ public class AdminLlista extends javax.swing.JFrame {
                         Integer.toString(Menu.habitacions[Menu.getIndexhabitacions()].getNumero()),
                         Menu.habitacions[Menu.getIndexhabitacions()].getServeis()
                     };
-
             DefaultTableModel tablemodel = (DefaultTableModel) jTable2.getModel();
-
             tablemodel.addRow(filahabitacions);
-
             jTable2.setModel(tablemodel);
-
             Menu.setIndexhabitacions(Menu.getIndexhabitacions()+1);
         }
         //LListem els Clients
         Menu.setIndexclients(0);
         while (Menu.clients[Menu.getIndexclients()] != null) {
             //creem la llista amb els seus components
-
             Object[] filahabitacions
                     = {
                         Menu.clients[Menu.getIndexhabitacions()].getNom(),
                         Menu.clients[Menu.getIndexhabitacions()].getCognoms(),
                         Menu.clients[Menu.getIndexhabitacions()].getDni(),
                         Menu.clients[Menu.getIndexhabitacions()].getDni()
-                    };
-            
+                    };            
             DefaultTableModel tablemodel = (DefaultTableModel) jTable3.getModel();
-
             tablemodel.addRow(filahabitacions);
-
             jTable3.setModel(tablemodel);
-
             Menu.setIndexclients(Menu.getIndexclients()+1);
         }    
     }

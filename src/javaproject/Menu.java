@@ -15,6 +15,7 @@ import java.io.FileOutputStream;
 import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 
 /**
  *
@@ -54,22 +55,27 @@ public class Menu extends javax.swing.JFrame {
 
     File fhotels = new File("dades.dat");         // El fitxer físic se diu "dades.dat". Si no s'especifica cap directori s'usa el del projecte. 
 
+    //cambiar a arraylist
     static Hotel[] hotels = new Hotel[DIM];
     static Habitacio[] habitacions = new Habitacio[DIM];
-    static Servei[] serveis = new Servei[DIM];
+    //static Servei[] serveis = new Servei[DIM];
     static Client[] clients = new Client[DIM];
     static Ubicacio[] ubicacions = new Ubicacio[DIM];
+    
+    static ArrayList <Servei> serveis= new ArrayList <>();
 
     /**
      * Creates new form Menu
      */
     public Menu() throws IOException {
         initComponents();
-         serveis[0]=new Servei("Cangur",50);
+         /*serveis[0]=new Servei("Cangur",50);
          serveis[1]=new Servei("Botons",25);
          serveis[2]=new Servei("Fisio",40);
          serveis[3]=new Servei("Jacuzzi",60);
-         serveis[4]=new Servei("Despertador",20);  
+         serveis[4]=new Servei("Despertador",20);  */
+        
+        fitxer();
     }
 
     private void fitxer() throws IOException {
@@ -100,10 +106,9 @@ public class Menu extends javax.swing.JFrame {
             }
             //Molt important!!. S'ha de tancar el fitxer.
             entrada.close();
-            System.out.println("Fitxer llegit correctament!!");
+            jTextField1.setText("Fitxer llegit correctament!!");
         } else {
-
-            System.out.println("El fitxer ja s'ha llegit o encara no existeix!!");
+            jTextField1.setText("El fitxer ja s'ha llegit o encara no existeix!!");
             indexhotels = -1;
         }
         //Anotem que hem llegit el fitxer
@@ -187,7 +192,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("/home/francesc/Code/javaProject/logo.png")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaproject/logo.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -287,9 +292,10 @@ public class Menu extends javax.swing.JFrame {
             sortida = new ObjectOutputStream(new FileOutputStream(fhotels));
 
             //Recorrem el vector i guardem els elements al fitxer de sortida
+            Menu.setIndexhotels(0);
             for (int i = 0; i <= indexhotels; i++) {
                 try {
-                    sortida.writeObject(hotels[i]);
+                    sortida.writeObject(Menu.hotels[Menu.getIndexhotels()]);
                 } catch (Exception ex) {
                     break;
                 }

@@ -5,6 +5,8 @@
  */
 package javaproject;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author sergi
@@ -13,11 +15,11 @@ public class Habitacio {
         int preu;
         int numero;
         int capacitat;  
-        String serveis;
+        ArrayList <Servei> serveis=new ArrayList<>();
     
     
 
-    public Habitacio(int preu, int numero, int capacitat, String serveis) {
+    public Habitacio(int preu, int numero, int capacitat, ArrayList<Servei> serveis) {
        
         this.preu = preu;
         this.numero = numero;
@@ -57,11 +59,12 @@ public class Habitacio {
     public void setCapacitat(int capacitat) {
         this.capacitat = capacitat;
     }
-    public String getServeis() {
+    public ArrayList <Servei> getServeis() {
+        
         return serveis;
     }
 
-    public void setServeis(String serveis) {
+    public void setServeis(ArrayList <Servei> serveis) {
         this.serveis = serveis;
     }
     
