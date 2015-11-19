@@ -20,6 +20,7 @@ public class Hotel implements Serializable {
     String ofertes;
     Ubicacio ubicacio;
     String ubicacio2;
+    
     public Hotel(){
         
     }

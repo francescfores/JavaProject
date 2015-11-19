@@ -5,13 +5,14 @@
  */
 package javaproject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author sergi
  */
-public class Habitacio {
+public class Habitacio implements Serializable{
         int preu;
         int numero;
         int capacitat;  

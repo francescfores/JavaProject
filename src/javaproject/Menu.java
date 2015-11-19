@@ -48,12 +48,11 @@ public class Menu extends javax.swing.JFrame {
     }
 
     private static final int DIM = 20;
-    boolean llegit = false;                       // Indica si s'ha llegit o no el fitxer de llista
-    static int indexhotels = -1;
-    static int indexhabitacions = -1;
-    static int indexclients = -1;
+                        // Indica si s'ha llegit o no el fitxer de llista
+    static int indexhotels;
+    static int indexhabitacions;
+    static int indexclients;
     
-    File fhotels = new File("dades.dat");         // El fitxer físic se diu "dades.dat". Si no s'especifica cap directori s'usa el del projecte. 
 
     //cambiar a arraylist
     static Hotel[] hotels = new Hotel[DIM];
@@ -73,51 +72,10 @@ public class Menu extends javax.swing.JFrame {
          serveis[1]=new Servei("Botons",25);
          serveis[2]=new Servei("Fisio",40);
          serveis[3]=new Servei("Jacuzzi",60);
-         serveis[4]=new Servei("Despertador",20);  */
+         serveis[4]=new Servei("Despertador",20);  */       
         
-        fitxer();
     }
 
-    private void fitxer() throws IOException {
-        //jButton8.setVisible(false);
-        if (!llegit & fhotels.exists()) {
-                        //LLegim el contingut del fitxer i ho guardem al vector
-
-            //Declarem el fluxe d'entrada
-            ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(fhotels));
-
-            //Índex per recorrer el vector inicialitzat a -1
-            indexhotels = -1;
-            
-            //El bucle finalitzarà quan haguem llegit tot el fitxer
-            while (true) {
-                try {
-                    Menu.hotels[++indexhotels] = (Hotel) entrada.readObject();
-                } //Si arribem al final del vector ho indiquem, decrementem l'índex i sortim del bucle infinit
-                catch (ArrayIndexOutOfBoundsException ex) {
-                    System.err.println("No cap tot el fitxer dins al vector!!");
-                    indexhotels--;
-                    break;
-                } //Quan arribem al final del fitxer sortim del bucle infinit
-                catch (Exception ex) {
-                    indexhotels--;
-                    break;
-                }
-            }
-            //Molt important!!. S'ha de tancar el fitxer.
-            entrada.close();
-            jTextField1.setText("Fitxer llegit correctament!!");
-        } else {
-            jTextField1.setText("El fitxer ja s'ha llegit o encara no existeix!!");
-            indexhotels = -1;
-        }
-        //Anotem que hem llegit el fitxer
-        llegit = true;
-
-        //Anotem que hem llegit el fitxer
-        llegit = true;
-
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -134,8 +92,6 @@ public class Menu extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jToggleButton2 = new javax.swing.JToggleButton();
         jButton1 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
@@ -170,20 +126,6 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
-        jButton4.setText("Guardar dadades");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-
         jButton5.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
         jButton5.setText("Exit");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -204,10 +146,8 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jToggleButton2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -233,22 +173,18 @@ public class Menu extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jToggleButton2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 208, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(45, 45, 45))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,54 +211,25 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jToggleButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Login ob = null;
+        /*Login ob = null;
         try {
             ob = new Login();
+        } catch (Exception ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ob.setVisible(true);*/
+        Admin ob = null;
+        try {
+            ob = new Admin();
         } catch (Exception ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
         ob.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-
-        //Declarem el fluxe de sortida
-        ObjectOutputStream sortida = null;
-        try {
-            sortida = new ObjectOutputStream(new FileOutputStream(fhotels));
-
-            //Recorrem el vector i guardem els elements al fitxer de sortida
-            
-            for (int i = 0; i <= indexhotels; i++) {
-                try {
-                    sortida.writeObject(Menu.hotels[i]);
-                } catch (Exception ex) {
-                    break;
-                }
-            }
-        } catch (IOException ex) {
-            jTextField1.setText("Error en guardar les dades!!");
-        } finally {
-            //Apuntem que hem tancat i guardat el fitxer
-            llegit = false;
-            //tanquem el fitxer de sortida
-            try {
-                sortida.close();
-                jTextField1.setText("Fitxer guardat correctament!!");
-
-            } catch (IOException ex) {
-                jTextField1.setText("Error en guardar les dades!!");
-            }
-
-        }
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        jTextField1.setText("Sortim del programa!!");
+        
         this.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -367,13 +274,11 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JToggleButton jToggleButton2;
     // End of variables declaration//GEN-END:variables

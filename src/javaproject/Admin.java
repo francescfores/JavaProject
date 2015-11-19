@@ -17,6 +17,7 @@ import java.io.ObjectOutputStream;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static javaproject.Menu.indexhotels;
 
 /**
  *
@@ -28,24 +29,103 @@ public class Admin extends javax.swing.JFrame {
     int i = 0, j = 0, k = 0, estrelles;
 
     int preu, numero, capacitat;
-    
-    String nomclient, cognom, dni, email;
-    Date   data_naixement;
-    
-    
 
+    String nomclient, cognom, dni, email;
+    Date data_naixement;
+
+    File fhotels = new File("hotels.dat");         // El fitxer físic se diu "dades.dat". Si no s'especifica cap directori s'usa el del projecte. 
+    File fhabitacions = new File("habitacions.dat"); 
+    File fclients = new File("clients.dat");
+    File fserveis = new File("serveis.dat");
+    File fubicacions = new File("ubicacions.dat");
+    File freserves = new File("reserves.dat");
+    File ffactures = new File("ffactures.dat");    
+    boolean llegit = false;  
     /**
      * Creates new form Admin
      */
     public Admin() throws IOException {
-
+        Menu.hotels.getClass().getName();
         initComponents();
+        fitxer(fhotels, Menu.indexhotels,Hotels);
+        //fitxer(fhabitacions, Menu.indexhabitacions);
+        //fitxer(fclients, Menu.indexclients);
+        //Anotem que hem llegit el fitxer
+        llegit = true;
         InsertarDades();
-        
+            
     }
 
     private void InsertarDades() throws IOException {
 
+    }
+
+    private void fitxer(File fitxer, int index, Class Myclass) throws IOException {
+        //jButton8.setVisible(false);
+        if (!llegit & fitxer.exists()) {
+                        //LLegim el contingut del fitxer i ho guardem al vector
+
+            //Declarem el fluxe d'entrada
+            ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(fitxer));
+
+            //Índex per recorrer el vector inicialitzat a -1
+            index = -1;
+
+            //El bucle finalitzarà quan haguem llegit tot el fitxer
+            while (true) {
+                try {
+                                       // = (Myclass)
+                    Menu.hotels[++index] = (Hotel)entrada.readObject();
+                } //Si arribem al final del vector ho indiquem, decrementem l'índex i sortim del bucle infinit
+                catch (ArrayIndexOutOfBoundsException ex) {
+                    //System.err.println("No cap tot el fitxer dins al vector!!");
+                    index--;
+                    break;
+                } //Quan arribem al final del fitxer sortim del bucle infinit
+                catch (Exception ex) {
+                    index--;
+                    break;
+                }
+            }
+            //Molt important!!. S'ha de tancar el fitxer.
+            entrada.close();
+            //jTextField1.setText("Fitxer llegit correctament!!");
+        } else {
+            //jTextField1.setText("El fitxer ja s'ha llegit o encara no existeix!!");
+            //index = -1;
+        }
+
+    }
+
+    public void guardaDades(File fitxer, int index, Object f[]) {
+        //Declarem el fluxe de sortida
+        ObjectOutputStream sortida = null;
+        try {
+            sortida = new ObjectOutputStream(new FileOutputStream(fitxer));
+
+            //Recorrem el vector i guardem els elements al fitxer de sortida
+            for (int i = 0; i <= index; i++) {
+                try {
+                    sortida.writeObject(f[i]);
+                } catch (Exception ex) {
+                    break;
+                }
+            }
+        } catch (IOException ex) {
+            //jTextField1.setText("Error en guardar les dades!!");
+        } finally {
+            //Apuntem que hem tancat i guardat el fitxer
+            llegit = false;
+            //tanquem el fitxer de sortida
+            try {
+                sortida.close();
+                //jTextField1.setText("Fitxer guardat correctament!!");
+
+            } catch (IOException ex) {
+                //jTextField1.setText("Error en guardar les dades!!");
+            }
+
+        }
     }
 
     /**
@@ -705,10 +785,10 @@ public class Admin extends javax.swing.JFrame {
         ubicacio = jTextField6.getText();
         try {
             estrelles = Integer.parseInt(jTextField3.getText());
-
-            Menu.setIndexhotels(Menu.getIndexhotels()+1);
             jTextField2.setText("Dades insertades correctament!!" + Menu.getIndexhotels());
-            Menu.hotels[Menu.getIndexhotels()] = new Hotel(nom, estrelles, direccio, valoracio, ofertes, ubicacio);
+            Menu.hotels[Menu.getIndexhotels()] = new Hotel(nom, estrelles, direccio, valoracio, Menu.hotels.getClass().getName(), ubicacio);
+            Menu.setIndexhotels(Menu.getIndexhotels() + 1);
+            guardaDades(fhotels, Menu.indexhotels, Menu.hotels);
         } catch (java.lang.NumberFormatException e) {
             jTextField2.setText("Les estrelles introduides no són valida torna-ho a probar!!!");
         }
@@ -760,7 +840,7 @@ public class Admin extends javax.swing.JFrame {
             numero = Integer.parseInt(jTextField12.getText());
             capacitat = Integer.parseInt(jTextField11.getText());
 
-            Menu.setIndexhabitacions(Menu.getIndexhabitacions()+1);
+            
             jTextField14.setText("Dades insertades correctament!!" + Menu.getIndexhabitacions());
             Menu.serveis.add(new Servei("cangur", 10));
             Menu.serveis.get(i);
@@ -769,6 +849,8 @@ public class Admin extends javax.swing.JFrame {
             //creem un array list i li afegim els serveis
             
             Menu.habitacions[Menu.indexhabitacions] = new Habitacio(preu, numero, capacitat, null);
+            Menu.setIndexhabitacions(Menu.getIndexhabitacions() + 1);
+            guardaDades(fhabitacions, Menu.indexhabitacions, Menu.habitacions);
         } catch (java.lang.NumberFormatException e) {
             jTextField14.setText("Les estrelles introduides no són valida torna-ho a probar!!!");
         }
@@ -800,13 +882,14 @@ public class Admin extends javax.swing.JFrame {
         cognom = jTextField19.getText();
         dni = jTextField18.getText();
         email = jTextField17.getText();
-        
-        try { 
-            //data_naixement = jTextField16.getText();
 
-            Menu.setIndexclients(Menu.getIndexclients()+1);
+        try {
+            //data_naixement = jTextField16.getText();
+            
             jTextField21.setText("Dades insertades correctament!!" + Menu.getIndexclients());
             Menu.clients[Menu.getIndexclients()] = new Client(nom, cognom, dni, email);
+            Menu.setIndexclients(Menu.getIndexclients() + 1);
+            guardaDades(fclients, Menu.indexclients, Menu.clients);
         } catch (java.lang.NumberFormatException e) {
             jTextField21.setText("Les estrelles introduides no són valida torna-ho a probar!!!");
         }
