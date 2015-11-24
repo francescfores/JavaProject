@@ -12,16 +12,26 @@ import java.io.Serializable;
  * @author francesc
  */
 public class Ubicacio implements Serializable{
+
+    public String getProvincia() {
+        return provincia;
+    }
+
+    public void setProvincia(String provincia) {
+        this.provincia = provincia;
+    }
     
         String pais;
-        String poblacio;    
+        String poblacio; 
+        String provincia;    
         int codiPostal;
         public Ubicacio(){
             
         }
         
-    public Ubicacio(String pais, String localitat, String poblacio, int codiPostal) {
+    public Ubicacio(String pais,  String provincia, String poblacio, int codiPostal) {
         this.pais = pais;
+        this.provincia = provincia;
         this.poblacio = poblacio;
         this.codiPostal = codiPostal;
     }       

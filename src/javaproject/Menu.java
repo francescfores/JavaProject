@@ -23,6 +23,22 @@ import java.util.ArrayList;
  */
 public class Menu extends javax.swing.JFrame {
 
+    public static int getIndexubicacions() {
+        return indexubicacions;
+    }
+
+    public static void setIndexubicacions(int indexubicacions) {
+        Menu.indexubicacions = indexubicacions;
+    }
+
+    public static int getIndexserveis() {
+        return indexserveis;
+    }
+
+    public static void setIndexserveis(int indexserveis) {
+        Menu.indexserveis = indexserveis;
+    }
+
     public static int getIndexhotels() {
         return indexhotels;
     }
@@ -46,22 +62,25 @@ public class Menu extends javax.swing.JFrame {
     public static void setIndexclients(int indexclients) {
         Menu.indexclients = indexclients;
     }
+    
 
     private static final int DIM = 20;
                         // Indica si s'ha llegit o no el fitxer de llista
     static int indexhotels;
     static int indexhabitacions;
     static int indexclients;
+    static int indexserveis; 
+    static int indexubicacions; 
     
-
     //cambiar a arraylist
     static Hotel[] hotels = new Hotel[DIM];
     static Habitacio[] habitacions = new Habitacio[DIM];
     //static Servei[] serveis = new Servei[DIM];
     static Client[] clients = new Client[DIM];
+    static Servei[] serveis = new Servei[DIM];
     static Ubicacio[] ubicacions = new Ubicacio[DIM];
     
-    static ArrayList <Servei> serveis= new ArrayList <>();
+    //static ArrayList <Servei> serveis= new ArrayList <>();
 
     /**
      * Creates new form Menu
