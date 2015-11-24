@@ -36,25 +36,21 @@ jPanel3.setBackground(new java.awt.Color(188, 204, 255));
 
 
 
-// Code of sub-components and layout - not shown here
-javax.swing.JLabel jLabel5 = new javax.swing.JLabel();
-
 javax.swing.JLabel jLabel3 = new javax.swing.JLabel();
-
 jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaproject/img/6741_v9_mc.jpeg"))); // NOI18N
 
-jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaproject/img/6741_v9_mc.jpeg"))); // NOI18N
-
-
-
 jPanel3.add(jLabel3);
-jPanel3.add(jLabel5);
 jLabel3.setBounds(0, 0, 300, 150);
 
+jPanel4.add(jLabel3);
 
 
-jScrollPane1.setViewportView(jPanel3);
+javax.swing.JLabel jLabel4 = new javax.swing.JLabel();
+jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaproject/img/6741_v9_mc.jpeg"))); // NOI18N
 
+jPanel4.add(jLabel4);
+jLabel4.setBounds(0, 150, 300, 150);
+jPanel4.add(jLabel4);
   
 
 
@@ -76,7 +72,8 @@ jScrollPane1.setViewportView(jPanel3);
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel4 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -91,26 +88,31 @@ jScrollPane1.setViewportView(jPanel3);
         jScrollPane1.setBackground(new java.awt.Color(188, 204, 255));
         jScrollPane1.setBorder(javax.swing.BorderFactory.createTitledBorder("Hotels"));
 
-        jPanel4.setBackground(new java.awt.Color(188, 254, 255));
+        jPanel4.setBackground(new java.awt.Color(188, 204, 255));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaproject/logo2.png"))); // NOI18N
-        jLabel4.setText("jLabel4");
+        jLabel5.setText("jLabel5");
+
+        jLabel6.setText("jLabel5");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4)
-                .addContainerGap(558, Short.MAX_VALUE))
+                .addGap(192, 192, 192)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6))
+                .addContainerGap(655, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4)
-                .addContainerGap(707, Short.MAX_VALUE))
+                .addGap(25, 25, 25)
+                .addComponent(jLabel5)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel6)
+                .addContainerGap(889, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(jPanel4);
@@ -148,13 +150,13 @@ jScrollPane1.setViewportView(jPanel3);
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(232, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 743, Short.MAX_VALUE))
@@ -169,7 +171,7 @@ jScrollPane1.setViewportView(jPanel3);
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -430,7 +432,8 @@ jScrollPane1.setViewportView(jPanel3);
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     public static javax.swing.JPanel jPanel4;
