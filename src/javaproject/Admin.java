@@ -44,7 +44,7 @@ public class Admin extends javax.swing.JFrame {
         Menu.hotels.getClass().getName();
         initComponents();
         
-        
+        Menu.setIndexubicacions(Menu.getIndexubicacions()+1);
         fitxernova(fhotels, Menu.hotels);
         
        
