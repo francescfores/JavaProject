@@ -44,9 +44,9 @@ public class Admin extends javax.swing.JFrame {
     public Admin() throws IOException {
         Menu.hotels.getClass().getName();
         initComponents();
-       
+        
         //Menu.setIndexubicacions(Menu.getIndexubicacions()+1);
-
+        
         fitxernova(fhotels, Menu.hotels);
 
         fitxernova(fclients, Menu.clients);
@@ -487,12 +487,17 @@ public class Admin extends javax.swing.JFrame {
         jLabel27.setText("Codi postal");
         jLabel27.setToolTipText("");
 
+        jComboBox1.setMaximumRowCount(20);
+        jComboBox1.setAutoscrolls(true);
+        jComboBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
+        jComboBox1.setInheritsPopupMenu(true);
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
             }
         });
 
+        jComboBox2.setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox2ActionPerformed(evt);
@@ -793,178 +798,17 @@ public class Admin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_jComboBox2ActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void jTextField27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField27ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //Hotels
-        nom = jTextField1.getText();
-        direccio = jTextField4.getText();
-        valoracio = jTextField5.getText();
-        ofertes = jTextField7.getText();
-       String polla = (String)jComboBox1.getSelectedItem();
-        try {
-            estrelles = Integer.parseInt(jTextField3.getText());
-            jTextField2.setText("Dades insertades correctament!!" + Menu.getIndexhotels());
-            Menu.hotels[Menu.getIndexhotels()] = new Hotel(nom, estrelles, direccio, valoracio, ofertes, (String)jComboBox1.getSelectedItem());
-            Menu.setIndexhotels(Menu.getIndexhotels() + 1);
-            guardaDades(fhotels, Menu.indexhotels, Menu.hotels);
-        } catch (java.lang.NumberFormatException e) {
-            jTextField2.setText("Les estrelles introduides no són valida torna-ho a probar!!!");
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        AdminLlista ob = null;
-        try {
-            ob = new AdminLlista();
-        } catch (Exception ex) {
-            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        ob.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
-        this.setVisible(false);
-    }//GEN-LAST:event_jButton21ActionPerformed
-
-    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField11ActionPerformed
-
-    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField12ActionPerformed
-
-    private void jTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField13ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField13ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        //Habitacions
-        try {
-            preu = Integer.parseInt(jTextField13.getText());
-            numero = Integer.parseInt(jTextField12.getText());
-            capacitat = Integer.parseInt(jTextField11.getText());
-            capacitat = Integer.parseInt(jTextField11.getText());
-          String servei =   (String) jComboBox2.getSelectedItem();
-            jTextField14.setText("Dades insertades correctament!!" + Menu.getIndexhabitacions());
-            //Menu.serveis.add(new Servei("cangur", 10));
-            //Menu.serveis.get(i);
-            //Menu.serveis[Menu.getIndexhabitacions()] = new Servei("cangur", 10);
-            //Menu.serveis.add():
-            //creem un array list i li afegim els serveis
-
-            Menu.habitacions[Menu.indexhabitacions] = new Habitacio(preu, numero, capacitat, servei );
-            Menu.setIndexhabitacions(Menu.getIndexhabitacions() + 1);
-            guardaDades(fhabitacions, Menu.indexhabitacions, Menu.habitacions);
-        } catch (java.lang.NumberFormatException e) {
-            jTextField14.setText("Les estrelles introduides no són valida torna-ho a probar!!!");
-        }
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField14ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField14ActionPerformed
-
-    private void jTextField17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField17ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField17ActionPerformed
-
-    private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField18ActionPerformed
-
-    private void jTextField19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField19ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField19ActionPerformed
-
-    private void jTextField20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField20ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField20ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        //Clients    
-        nom = jTextField20.getText();
-        cognom = jTextField19.getText();
-        dni = jTextField18.getText();
-        email = jTextField17.getText();
-
-        try {
-            //data_naixement = jTextField16.getText();
-
-            jTextField21.setText("Dades insertades correctament!!" + Menu.getIndexclients());
-            Menu.clients[Menu.getIndexclients()] = new Client(nom, cognom, dni, email);
-            Menu.setIndexclients(Menu.getIndexclients() + 1);
-            guardaDades(fclients, Menu.indexclients, Menu.clients);
-        } catch (java.lang.NumberFormatException e) {
-            jTextField21.setText("Les estrelles introduides no són valida torna-ho a probar!!!");
-        }
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jTextField21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField21ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField21ActionPerformed
-
-    private void jTextField22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField22ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField22ActionPerformed
-
-    private void jTextField15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField15ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField15ActionPerformed
-
-    private void jTextField16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField16ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField16ActionPerformed
-
-    private void jTextField24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField24ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField24ActionPerformed
-
-    private void jTextField25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField25ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField25ActionPerformed
-
-    private void jTextField26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField26ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField26ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        //serveis    
-        nom = jTextField15.getText();
-        try {
-            preu = Integer.parseInt(jTextField16.getText());
-
-            Menu.serveis[Menu.getIndexserveis()] = new Servei(nom, preu);
-            Menu.setIndexserveis(Menu.getIndexserveis() + 1);
-            guardaDades(fserveis, Menu.indexserveis, Menu.serveis);
-        } catch (java.lang.NumberFormatException e) {
-            jTextField21.setText("Les estrelles introduides no són valida torna-ho a probar!!!");
-        }
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_jTextField27ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         String pais, provincia, poblacio;
@@ -984,17 +828,178 @@ public class Admin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void jTextField27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField27ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField27ActionPerformed
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        //serveis
+        nom = jTextField15.getText();
+        try {
+            preu = Integer.parseInt(jTextField16.getText());
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+            Menu.serveis[Menu.getIndexserveis()] = new Servei(nom, preu);
+            Menu.setIndexserveis(Menu.getIndexserveis() + 1);
+            guardaDades(fserveis, Menu.indexserveis, Menu.serveis);
+        } catch (java.lang.NumberFormatException e) {
+            jTextField21.setText("Les estrelles introduides no són valida torna-ho a probar!!!");
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+    private void jTextField26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField26ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox2ActionPerformed
+    }//GEN-LAST:event_jTextField26ActionPerformed
+
+    private void jTextField25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField25ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField25ActionPerformed
+
+    private void jTextField24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField24ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField24ActionPerformed
+
+    private void jTextField16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField16ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField16ActionPerformed
+
+    private void jTextField15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField15ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField15ActionPerformed
+
+    private void jTextField22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField22ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField22ActionPerformed
+
+    private void jTextField21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField21ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField21ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        //Clients
+        nom = jTextField20.getText();
+        cognom = jTextField19.getText();
+        dni = jTextField18.getText();
+        email = jTextField17.getText();
+
+        try {
+            //data_naixement = jTextField16.getText();
+
+            jTextField21.setText("Dades insertades correctament!!" + Menu.getIndexclients());
+            Menu.clients[Menu.getIndexclients()] = new Client(nom, cognom, dni, email);
+            Menu.setIndexclients(Menu.getIndexclients() + 1);
+            guardaDades(fclients, Menu.indexclients, Menu.clients);
+        } catch (java.lang.NumberFormatException e) {
+            jTextField21.setText("Les estrelles introduides no són valida torna-ho a probar!!!");
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jTextField20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField20ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField20ActionPerformed
+
+    private void jTextField19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField19ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField19ActionPerformed
+
+    private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField18ActionPerformed
+
+    private void jTextField17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField17ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField17ActionPerformed
+
+    private void jTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField14ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        //Habitacions
+        try {
+            preu = Integer.parseInt(jTextField13.getText());
+            numero = Integer.parseInt(jTextField12.getText());
+            capacitat = Integer.parseInt(jTextField11.getText());
+            capacitat = Integer.parseInt(jTextField11.getText());
+            String servei =   (String) jComboBox2.getSelectedItem();
+            jTextField14.setText("Dades insertades correctament!!" + Menu.getIndexhabitacions());
+            //Menu.serveis.add(new Servei("cangur", 10));
+            //Menu.serveis.get(i);
+            //Menu.serveis[Menu.getIndexhabitacions()] = new Servei("cangur", 10);
+            //Menu.serveis.add():
+            //creem un array list i li afegim els serveis
+
+            Menu.habitacions[Menu.indexhabitacions] = new Habitacio(preu, numero, capacitat, servei );
+            Menu.setIndexhabitacions(Menu.getIndexhabitacions() + 1);
+            guardaDades(fhabitacions, Menu.indexhabitacions, Menu.habitacions);
+        } catch (java.lang.NumberFormatException e) {
+            jTextField14.setText("Les estrelles introduides no són valida torna-ho a probar!!!");
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField13ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField13ActionPerformed
+
+    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField12ActionPerformed
+
+    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField11ActionPerformed
+
+    private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton21ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        AdminLlista ob = null;
+        try {
+            ob = new AdminLlista();
+        } catch (Exception ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ob.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //Hotels
+        nom = jTextField1.getText();
+        direccio = jTextField4.getText();
+        valoracio = jTextField5.getText();
+        ofertes = jTextField7.getText();
+        String polla = (String)jComboBox1.getSelectedItem();
+        try {
+            estrelles = Integer.parseInt(jTextField3.getText());
+            jTextField2.setText("Dades insertades correctament!!" + Menu.getIndexhotels());
+            Menu.hotels[Menu.getIndexhotels()] = new Hotel(nom, estrelles, direccio, valoracio, ofertes, (String)jComboBox1.getSelectedItem());
+            Menu.setIndexhotels(Menu.getIndexhotels() + 1);
+            guardaDades(fhotels, Menu.indexhotels, Menu.hotels);
+        } catch (java.lang.NumberFormatException e) {
+            jTextField2.setText("Les estrelles introduides no són valida torna-ho a probar!!!");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField7ActionPerformed
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField5ActionPerformed
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
