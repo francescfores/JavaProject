@@ -16,6 +16,9 @@ import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 /**
  *
  * @author francesc
@@ -28,29 +31,23 @@ public class Resultat extends javax.swing.JFrame {
     public Resultat() {
         initComponents();
 
+//JPanel newPanel = new JPanel();
+//JPanel newPanel = new JPanel(true);     // enable double buffering
+//JPanel newPanel = new JPanel(new GridBagLayout());
+//JPanel newPanel = new JPanel(new BorderLayout());
 
-
-javax.swing.JPanel jPanel3 = new javax.swing.JPanel();
-
-jPanel3.setBackground(new java.awt.Color(188, 204, 255));
-
-
-
-javax.swing.JLabel jLabel3 = new javax.swing.JLabel();
-jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaproject/img/6741_v9_mc.jpeg"))); // NOI18N
-
-jPanel3.add(jLabel3);
-jLabel3.setBounds(0, 0, 300, 150);
-
-jPanel4.add(jLabel3);
-
-
+JPanel jPanel3 = new JPanel(new GridBagLayout());
 javax.swing.JLabel jLabel4 = new javax.swing.JLabel();
-jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaproject/img/6741_v9_mc.jpeg"))); // NOI18N
+jLabel4.setText("jLabel4");
+jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaproject/logo2.png"))); // NOI18N
 
-jPanel4.add(jLabel4);
-jLabel4.setBounds(0, 150, 300, 150);
-jPanel4.add(jLabel4);
+
+jPanel3.setBackground(new java.awt.Color(3, 241, 240));
+jPanel3.setSize(400, 200);
+jPanel3.add(jLabel4);
+jLabel4.setLocation(2, 2);
+
+jPanel4.add(jPanel3);
   
 
 
@@ -72,8 +69,6 @@ jPanel4.add(jLabel4);
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel4 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -90,29 +85,15 @@ jPanel4.add(jLabel4);
 
         jPanel4.setBackground(new java.awt.Color(188, 204, 255));
 
-        jLabel5.setText("jLabel5");
-
-        jLabel6.setText("jLabel5");
-
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(192, 192, 192)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6))
-                .addContainerGap(655, Short.MAX_VALUE))
+            .addGap(0, 898, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel5)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel6)
-                .addContainerGap(889, Short.MAX_VALUE))
+            .addGap(0, 964, Short.MAX_VALUE)
         );
 
         jScrollPane1.setViewportView(jPanel4);
@@ -150,7 +131,7 @@ jPanel4.add(jLabel4);
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(232, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -432,8 +413,6 @@ jPanel4.add(jLabel4);
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     public static javax.swing.JPanel jPanel4;
