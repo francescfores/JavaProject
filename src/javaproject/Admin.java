@@ -66,6 +66,15 @@ public class Admin extends javax.swing.JFrame {
             Object cmboitem = jComboBox1.getSelectedItem();      
             Menu.setIndexubicacions(Menu.getIndexubicacions() + 1);
         }
+        
+         Menu.setIndexubicacions(0);
+        while (Menu.serveis[Menu.getIndexserveis()] != null) {
+            String nomServei = Menu.serveis[Menu.getIndexserveis()].getNom();
+
+            jComboBox2.addItem(nomServei);
+            Object cmboitem = jComboBox2.getSelectedItem();      
+            Menu.setIndexserveis(Menu.getIndexserveis()+ 1);
+        }
 
     }
 
@@ -175,7 +184,6 @@ public class Admin extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
         jTextField11 = new javax.swing.JTextField();
         jTextField12 = new javax.swing.JTextField();
         jTextField13 = new javax.swing.JTextField();
@@ -210,6 +218,7 @@ public class Admin extends javax.swing.JFrame {
         jTextField27 = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
+        jComboBox2 = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -315,12 +324,6 @@ public class Admin extends javax.swing.JFrame {
 
         jLabel13.setText("serveis");
         jLabel13.setToolTipText("");
-
-        jTextField10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField10ActionPerformed(evt);
-            }
-        });
 
         jTextField11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -488,6 +491,12 @@ public class Admin extends javax.swing.JFrame {
             }
         });
 
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -555,10 +564,10 @@ public class Admin extends javax.swing.JFrame {
                                                     .addGap(1, 1, 1)
                                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                         .addComponent(jButton3)
-                                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                            .addComponent(jTextField11, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+                                                            .addComponent(jTextField12, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+                                                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                                                 .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                     .addComponent(jLabel2))
                                 .addGap(112, 112, 112)
@@ -669,11 +678,11 @@ public class Admin extends javax.swing.JFrame {
                                             .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(49, 49, 49))
                                     .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(21, 21, 21)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel13))
-                                .addGap(135, 135, 135)
+                                .addGap(26, 26, 26)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel13)
+                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(124, 124, 124)
                                 .addComponent(jButton3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -804,11 +813,11 @@ public class Admin extends javax.swing.JFrame {
         direccio = jTextField4.getText();
         valoracio = jTextField5.getText();
         ofertes = jTextField7.getText();
-
+       String polla = (String)jComboBox2.getSelectedItem();
         try {
             estrelles = Integer.parseInt(jTextField3.getText());
             jTextField2.setText("Dades insertades correctament!!" + Menu.getIndexhotels());
-            Menu.hotels[Menu.getIndexhotels()] = new Hotel(nom, estrelles, direccio, valoracio, ofertes, ubicacio);
+            Menu.hotels[Menu.getIndexhotels()] = new Hotel(nom, estrelles, direccio, valoracio, ofertes, polla);
             Menu.setIndexhotels(Menu.getIndexhotels() + 1);
             guardaDades(fhotels, Menu.indexhotels, Menu.hotels);
         } catch (java.lang.NumberFormatException e) {
@@ -839,10 +848,6 @@ public class Admin extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton21ActionPerformed
 
-    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField10ActionPerformed
-
     private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField11ActionPerformed
@@ -861,7 +866,8 @@ public class Admin extends javax.swing.JFrame {
             preu = Integer.parseInt(jTextField13.getText());
             numero = Integer.parseInt(jTextField12.getText());
             capacitat = Integer.parseInt(jTextField11.getText());
-
+            capacitat = Integer.parseInt(jTextField11.getText());
+          String servei =   (String) jComboBox2.getSelectedItem();
             jTextField14.setText("Dades insertades correctament!!" + Menu.getIndexhabitacions());
             //Menu.serveis.add(new Servei("cangur", 10));
             //Menu.serveis.get(i);
@@ -869,7 +875,7 @@ public class Admin extends javax.swing.JFrame {
             //Menu.serveis.add():
             //creem un array list i li afegim els serveis
 
-            Menu.habitacions[Menu.indexhabitacions] = new Habitacio(preu, numero, capacitat, null);
+            Menu.habitacions[Menu.indexhabitacions] = new Habitacio(preu, numero, capacitat, servei );
             Menu.setIndexhabitacions(Menu.getIndexhabitacions() + 1);
             guardaDades(fhabitacions, Menu.indexhabitacions, Menu.habitacions);
         } catch (java.lang.NumberFormatException e) {
@@ -984,6 +990,10 @@ public class Admin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1032,6 +1042,7 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1060,7 +1071,6 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;

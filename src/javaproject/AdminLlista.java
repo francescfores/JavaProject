@@ -44,7 +44,8 @@ public class AdminLlista extends javax.swing.JFrame {
                         Integer.toString(Menu.hotels[Menu.getIndexhotels()].getEstrelles()),
                         Menu.hotels[Menu.getIndexhotels()].getDireccio(),
                         Menu.hotels[Menu.getIndexhotels()].getValoracio(),
-                        Menu.hotels[Menu.getIndexhotels()].getOfertes()
+                        Menu.hotels[Menu.getIndexhotels()].getOfertes(),
+                        Menu.hotels[Menu.getIndexhotels()].getUbicacio()
                     };
             DefaultTableModel tablemodel = (DefaultTableModel) jTable1.getModel();
             tablemodel.addRow(filahotels);

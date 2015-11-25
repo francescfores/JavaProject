@@ -15,12 +15,15 @@ import java.util.ArrayList;
 public class Habitacio implements Serializable{
         int preu;
         int numero;
-        int capacitat;  
-        ArrayList <Servei> serveis=new ArrayList<>();
+        int capacitat; 
+        String serveis;
+        //ArrayList <Servei> serveis=new ArrayList<>();
+
+    
     
     
 
-    public Habitacio(int preu, int numero, int capacitat, ArrayList<Servei> serveis) {
+    public Habitacio(int preu, int numero, int capacitat, /*ArrayList<Servei> */String serveis) {
        
         this.preu = preu;
         this.numero = numero;
@@ -60,18 +63,13 @@ public class Habitacio implements Serializable{
     public void setCapacitat(int capacitat) {
         this.capacitat = capacitat;
     }
-    public ArrayList <Servei> getServeis() {
-        
+    
+    public String getServeis() {
         return serveis;
     }
 
-    public void setServeis(ArrayList <Servei> serveis) {
+    public void setServeis(String serveis) {
         this.serveis = serveis;
     }
-    
-    
-    private void Serveis() {
-}
-    
     
 }

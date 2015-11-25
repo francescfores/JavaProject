@@ -18,28 +18,28 @@ public class Hotel implements Serializable {
     String direccio;
     String valoracio;
     String ofertes;
-    Ubicacio ubicacio;
-    String ubicacio2;
+    //Ubicacio ubicacio;
+    String ubicacio;
+
     
-    public Hotel(){
-        
-    }
-    public Hotel(String nom, int estrelles, String direccio, String valoracio, String ofertes, Ubicacio ubicacio) {
+    
+    
+   /* public Hotel(String nom, int estrelles, String direccio, String valoracio, String ofertes, Ubicacio ubicacio) {
         this.nom = nom;
         this.estrelles = estrelles;
         this.direccio = direccio;
         this.valoracio = valoracio;
         this.ofertes = ofertes;
         this.ubicacio = ubicacio;
-    }
+    }*/
 
- public Hotel(String nom, int estrelles, String direccio, String valoracio, String ofertes, String ubicacio2) {
+ public Hotel(String nom, int estrelles, String direccio, String valoracio, String ofertes, String ubicacio) {
         this.nom = nom;
         this.estrelles = estrelles;
         this.direccio = direccio;
         this.valoracio = valoracio;
         this.ofertes = ofertes;
-        this.ubicacio2 = ubicacio2;
+        this.ubicacio = ubicacio;
     }
     
     public String getNom() {
@@ -81,14 +81,21 @@ public class Hotel implements Serializable {
     public void setOfertes(String ofertes) {
         this.ofertes = ofertes;
     }
+    public String getUbicacio() {
+        return ubicacio;
+    }
 
-    public Hotel(String nom, int estrelles, String direccio, String valoracio, String ofertes) {
+    public void setUbicacio(String ubicacio) {
+        this.ubicacio = ubicacio;
+    }
+
+    /*public Hotel(String nom, int estrelles, String direccio, String valoracio, String ofertes) {
         this.nom = nom;
         this.estrelles = estrelles;
         this.direccio = direccio;
         this.valoracio = valoracio;
         this.ofertes = ofertes;
-    }
+    }*/
     
       
     
