@@ -25,7 +25,9 @@ public class Ubicacio implements Serializable{
         String poblacio; 
         String provincia;    
         int codiPostal;
-        public Ubicacio(){
+        
+        
+    public Ubicacio(){
             
         }
         

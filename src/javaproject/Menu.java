@@ -62,7 +62,13 @@ public class Menu extends javax.swing.JFrame {
     public static void setIndexclients(int indexclients) {
         Menu.indexclients = indexclients;
     }
-    
+    public static Ubicacio[] getUbicacions() {
+        return ubicacions;
+    }
+
+    public static void setUbicacions(Ubicacio[] ubicacions) {
+        Menu.ubicacions = ubicacions;
+    }
 
     private static final int DIM = 20;
                         // Indica si s'ha llegit o no el fitxer de llista
@@ -79,6 +85,8 @@ public class Menu extends javax.swing.JFrame {
     static Client[] clients = new Client[DIM];
     static Servei[] serveis = new Servei[DIM];
     static Ubicacio[] ubicacions = new Ubicacio[DIM];
+
+    
     
     //static ArrayList <Servei> serveis= new ArrayList <>();
 
