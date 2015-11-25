@@ -59,7 +59,8 @@ public class Admin extends javax.swing.JFrame {
         //Anotem que hem llegit el fitxer
         llegit = true;
         InsertarDades();
-
+        jComboBox1.addItem("Selecciona un país");
+        jComboBox2.addItem("Selecciona un servei");
         Menu.setIndexubicacions(0);
         while (Menu.ubicacions[Menu.getIndexubicacions()] != null) {
             String paisos = Menu.ubicacions[Menu.getIndexubicacions()].getPais();
@@ -68,6 +69,7 @@ public class Admin extends javax.swing.JFrame {
             Object cmboitem = jComboBox1.getSelectedItem();      
             Menu.setIndexubicacions(Menu.getIndexubicacions() + 1);
         }
+        
         
          Menu.setIndexserveis(0);
         while (Menu.serveis[Menu.getIndexserveis()] != null) {
@@ -917,6 +919,9 @@ public class Admin extends javax.swing.JFrame {
             capacitat = Integer.parseInt(jTextField11.getText());
             capacitat = Integer.parseInt(jTextField11.getText());
             String servei =   (String) jComboBox2.getSelectedItem();
+            if (servei.equals("Selecciona un servei")){
+                jTextField14.setText("Selecciona un servei");
+            }else{
             jTextField14.setText("Dades insertades correctament!!" + Menu.getIndexhabitacions());
             //Menu.serveis.add(new Servei("cangur", 10));
             //Menu.serveis.get(i);
@@ -927,6 +932,7 @@ public class Admin extends javax.swing.JFrame {
             Menu.habitacions[Menu.indexhabitacions] = new Habitacio(preu, numero, capacitat, servei );
             Menu.setIndexhabitacions(Menu.getIndexhabitacions() + 1);
             guardaDades(fhabitacions, Menu.indexhabitacions, Menu.habitacions);
+            }
         } catch (java.lang.NumberFormatException e) {
             jTextField14.setText("Les estrelles introduides no són valida torna-ho a probar!!!");
         }
@@ -969,16 +975,22 @@ public class Admin extends javax.swing.JFrame {
         direccio = jTextField4.getText();
         valoracio = jTextField5.getText();
         ofertes = jTextField7.getText();
-        String polla = (String)jComboBox1.getSelectedItem();
+        ubicacio = (String)jComboBox1.getSelectedItem();
         try {
             estrelles = Integer.parseInt(jTextField3.getText());
+            if (ubicacio.equals("Selecciona un país")){
+                jTextField2.setText("Selecciona un país");
+            }else{
             jTextField2.setText("Dades insertades correctament!!" + Menu.getIndexhotels());
-            Menu.hotels[Menu.getIndexhotels()] = new Hotel(nom, estrelles, direccio, valoracio, ofertes, (String)jComboBox1.getSelectedItem());
+            Menu.hotels[Menu.getIndexhotels()] = new Hotel(nom, estrelles, direccio, valoracio, ofertes, ubicacio);
             Menu.setIndexhotels(Menu.getIndexhotels() + 1);
             guardaDades(fhotels, Menu.indexhotels, Menu.hotels);
+            }
         } catch (java.lang.NumberFormatException e) {
             jTextField2.setText("Les estrelles introduides no són valida torna-ho a probar!!!");
+            
         }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
