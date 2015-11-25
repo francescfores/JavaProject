@@ -130,10 +130,20 @@ public class Menu extends javax.swing.JFrame {
         jLabel1.setText("Lo sabemos todo sobre hoteles");
 
         jTextField2.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
-        jTextField2.setText("Ejemplo : Barcelona");
+        jTextField2.setText("Ejemplo : Barcelona"); // NOI18N
+        jTextField2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField2MouseClicked(evt);
+            }
+        });
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
+            }
+        });
+        jTextField2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField2FocusGained(evt);
             }
         });
 
@@ -259,6 +269,14 @@ public class Menu extends javax.swing.JFrame {
         
         this.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jTextField2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusGained
+        
+    }//GEN-LAST:event_jTextField2FocusGained
+
+    private void jTextField2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField2MouseClicked
+       jTextField2.setText("");
+    }//GEN-LAST:event_jTextField2MouseClicked
 
     /**
      * @param args the command line arguments
