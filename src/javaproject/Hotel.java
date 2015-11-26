@@ -12,13 +12,17 @@ import java.io.Serializable;
  * @author francesc
  */
 public class Hotel implements Serializable {
+
+   
         
     String nom;
     int estrelles;
     String direccio;
     String valoracio;
     String ofertes;
-    //Ubicacio ubicacio;
+    Ubicacio ubicacions;
+
+   
     String ubicacio;
 
     
@@ -41,7 +45,14 @@ public class Hotel implements Serializable {
         this.ofertes = ofertes;
         this.ubicacio = ubicacio;
     }
-    
+     public Hotel(String nom, int estrelles, String direccio, String valoracio, String ofertes, Ubicacio ubicacions) {
+        this.nom = nom;
+        this.estrelles = estrelles;
+        this.direccio = direccio;
+        this.valoracio = valoracio;
+        this.ofertes = ofertes;
+        this.ubicacions = ubicacions;
+    }
     public String getNom() {
         return nom;
     }
@@ -88,7 +99,13 @@ public class Hotel implements Serializable {
     public void setUbicacio(String ubicacio) {
         this.ubicacio = ubicacio;
     }
+ public Ubicacio getUbicacions() {
+        return ubicacions;
+    }
 
+    public void setUbicacions(Ubicacio ubicacions) {
+        this.ubicacions = ubicacions;
+    }
     /*public Hotel(String nom, int estrelles, String direccio, String valoracio, String ofertes) {
         this.nom = nom;
         this.estrelles = estrelles;
