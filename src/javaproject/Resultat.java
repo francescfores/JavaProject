@@ -32,10 +32,37 @@ public class Resultat extends javax.swing.JFrame {
      * Creates new form Resultat
      */
     public Resultat() {
+<<<<<<< HEAD
 
         initComponents();
 
         Resultats(new JPanel());
+=======
+        
+        initComponents();
+        
+        Resultats(new JPanel());
+        llistaComboBox();
+    }
+public  void llistaComboBox() {
+        Menu.setIndexubicacions(0);
+        while (Menu.ubicacions[Menu.getIndexubicacions()] != null) {
+            String paisos = Menu.ubicacions[Menu.getIndexubicacions()].getPais();
+
+            jComboBox2.addItem(paisos);
+            Object cmboitem = jComboBox2.getSelectedItem();
+            Menu.setIndexubicacions(Menu.getIndexubicacions() + 1);
+        }
+
+        Menu.setIndexserveis(0);
+        while (Menu.serveis[Menu.getIndexserveis()] != null) {
+            String nomServei = Menu.serveis[Menu.getIndexserveis()].getNom();
+
+            jComboBox3.addItem(nomServei);
+            Object cmboitem = jComboBox3.getSelectedItem();
+            Menu.setIndexserveis(Menu.getIndexserveis() + 1);
+        }
+>>>>>>> 86efc94c83bc30085390122682ffdadfbe33fe6e
     }
 
     public void Resultats(JPanel panele) {
@@ -51,6 +78,7 @@ public class Resultat extends javax.swing.JFrame {
             //Busquem per provincia
             if (a.equalsIgnoreCase(Menu.hotels[Menu.getIndexhotels()].getUbicacions().getProvincia())) {
                 jPanel4.add((Component) Panellnou(new JPanel()));
+<<<<<<< HEAD
                 //Busquem per pais
             } else if (a.equalsIgnoreCase(Menu.hotels[Menu.getIndexhotels()].getUbicacions().getPais())) {
                 jPanel4.add((Component) Panellnou(new JPanel()));
@@ -59,6 +87,17 @@ public class Resultat extends javax.swing.JFrame {
                 jPanel4.add((Component) Panellnou(new JPanel()));
             } else if (a.equalsIgnoreCase(Menu.hotels[Menu.getIndexhotels()].getNom())) {
                 jPanel4.add((Component) Panellnou(new JPanel()));
+=======
+                cont++;
+                //Busquem per pais
+            } else if (a.equalsIgnoreCase(Menu.hotels[Menu.getIndexhotels()].getUbicacions().getPais())) {
+                jPanel4.add((Component) Panellnou(new JPanel()));
+                cont++;
+                //Busquem per poblacio
+            } else if (a.equalsIgnoreCase(Menu.hotels[Menu.getIndexhotels()].getUbicacions().getPoblacio())) {
+                jPanel4.add((Component) Panellnou(new JPanel()));
+                cont++;
+>>>>>>> 86efc94c83bc30085390122682ffdadfbe33fe6e
             }
 
             Menu.setIndexhotels(Menu.getIndexhotels() + 1);
@@ -161,8 +200,11 @@ public class Resultat extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
         jComboBox3 = new javax.swing.JComboBox();
+<<<<<<< HEAD
         jComboBox4 = new javax.swing.JComboBox();
         jSeparator5 = new javax.swing.JSeparator();
+=======
+>>>>>>> 86efc94c83bc30085390122682ffdadfbe33fe6e
         jButton25 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -196,7 +238,15 @@ public class Resultat extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("filtres"));
         jPanel2.setToolTipText("");
 
+<<<<<<< HEAD
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Pais" }));
+=======
+        jComboBox2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBox2MouseClicked(evt);
+            }
+        });
+>>>>>>> 86efc94c83bc30085390122682ffdadfbe33fe6e
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox2ActionPerformed(evt);
@@ -204,21 +254,34 @@ public class Resultat extends javax.swing.JFrame {
         });
 
         jList1.setModel(new javax.swing.AbstractListModel() {
+<<<<<<< HEAD
             String[] strings = { "Hotels" };
+=======
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+>>>>>>> 86efc94c83bc30085390122682ffdadfbe33fe6e
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
         jScrollPane2.setViewportView(jList1);
 
+<<<<<<< HEAD
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Provincia" }));
 
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Provincia" }));
+=======
+        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox3ActionPerformed(evt);
+            }
+        });
+>>>>>>> 86efc94c83bc30085390122682ffdadfbe33fe6e
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jSeparator2)
+<<<<<<< HEAD
             .addComponent(jSeparator4)
             .addComponent(jSeparator3)
             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -230,6 +293,17 @@ public class Resultat extends javax.swing.JFrame {
                     .addComponent(jSeparator5)
                     .addComponent(jComboBox4, javax.swing.GroupLayout.Alignment.TRAILING, 0, 125, Short.MAX_VALUE))
                 .addContainerGap())
+=======
+            .addComponent(jSeparator3)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComboBox2, 0, 125, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2)
+                    .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+            .addComponent(jSeparator4)
+>>>>>>> 86efc94c83bc30085390122682ffdadfbe33fe6e
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -242,6 +316,7 @@ public class Resultat extends javax.swing.JFrame {
                 .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                 .addGap(18, 18, 18)
                 .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -251,6 +326,13 @@ public class Resultat extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(142, Short.MAX_VALUE))
+=======
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(217, Short.MAX_VALUE))
+>>>>>>> 86efc94c83bc30085390122682ffdadfbe33fe6e
         );
 
         jButton25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaproject/img/x1.png"))); // NOI18N
@@ -325,8 +407,21 @@ public class Resultat extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton25ActionPerformed
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+<<<<<<< HEAD
         
     }//GEN-LAST:event_jComboBox2ActionPerformed
+=======
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox3ActionPerformed
+
+    private void jComboBox2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox2MouseClicked
+            Resultats(new JPanel());
+    }//GEN-LAST:event_jComboBox2MouseClicked
+>>>>>>> 86efc94c83bc30085390122682ffdadfbe33fe6e
     /*
      public void initComponents2() {
 
@@ -579,7 +674,10 @@ public class Resultat extends javax.swing.JFrame {
     private javax.swing.JButton jButton25;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JComboBox jComboBox3;
+<<<<<<< HEAD
     private javax.swing.JComboBox jComboBox4;
+=======
+>>>>>>> 86efc94c83bc30085390122682ffdadfbe33fe6e
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -592,6 +690,9 @@ public class Resultat extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
+<<<<<<< HEAD
     private javax.swing.JSeparator jSeparator5;
+=======
+>>>>>>> 86efc94c83bc30085390122682ffdadfbe33fe6e
     // End of variables declaration//GEN-END:variables
 }

@@ -63,12 +63,21 @@ public class Admin extends javax.swing.JFrame {
         llistaComboBox();
     }
 
+<<<<<<< HEAD
     public void llistaComboBox() {
         Menu.setIndexubicacions(0);
         while (Menu.ubicacions[Menu.getIndexubicacions()] != null) {
             String paisos = Menu.ubicacions[Menu.getIndexubicacions()].getPais();
 
             jComboBox1.addItem(paisos);
+=======
+    public  void llistaComboBox() {
+        Menu.setIndexubicacions(0);
+        while (Menu.ubicacions[Menu.getIndexubicacions()] != null) {
+            //String paisos = Menu.ubicacions[Menu.getIndexubicacions()].getPais();
+
+            jComboBox1.addItem(Menu.ubicacions[Menu.getIndexubicacions()]);
+>>>>>>> 86efc94c83bc30085390122682ffdadfbe33fe6e
             Object cmboitem = jComboBox1.getSelectedItem();
             Menu.setIndexubicacions(Menu.getIndexubicacions() + 1);
         }
@@ -973,13 +982,18 @@ public class Admin extends javax.swing.JFrame {
         direccio = jTextField4.getText();
         valoracio = jTextField5.getText();
         ofertes = jTextField7.getText();
+<<<<<<< HEAD
         ubicacio = (String) jComboBox1.getSelectedItem();
+=======
+        ubicacio = jComboBox1.getSelectedItem().toString();
+>>>>>>> 86efc94c83bc30085390122682ffdadfbe33fe6e
 
         try {
             estrelles = Integer.parseInt(jTextField3.getText());
             if (ubicacio.equals("Selecciona un país")) {
                 jTextField2.setText("Selecciona un país");
             } else {
+<<<<<<< HEAD
                 Menu.setIndexubicacions(0);
                 while (Menu.ubicacions[Menu.getIndexubicacions()] != null) {
                     if (ubicacio.equals(Menu.ubicacions[Menu.getIndexubicacions()].getPais())) {
@@ -992,6 +1006,22 @@ public class Admin extends javax.swing.JFrame {
                     }
                     Menu.setIndexubicacions(Menu.getIndexubicacions() + 1);
                 }
+=======
+                Ubicacio ubicacio2=(Ubicacio)jComboBox1.getItemAt(jComboBox1.getSelectedIndex());
+                Menu.hotels[Menu.getIndexhotels()] = new Hotel(nom, estrelles, direccio, valoracio, ofertes, ubicacio2);
+//                Menu.setIndexubicacions(0);
+//                while (Menu.ubicacions[Menu.getIndexubicacions()] != null) {
+//                    if (ubicacio.equals(Menu.ubicacions[Menu.getIndexubicacions()].getPais())) {
+//                        String paisos = Menu.ubicacions[Menu.getIndexubicacions()].getPais();
+//                        String provincia = Menu.ubicacions[Menu.getIndexubicacions()].getProvincia();
+//                        String poblacio = Menu.ubicacions[Menu.getIndexubicacions()].getPoblacio();
+//                        int codiposat = Menu.ubicacions[Menu.getIndexubicacions()].getCodiPostal();
+//                        Ubicacio ubicacio2 = new Ubicacio(paisos,provincia,poblacio,codiposat);
+//                        Menu.hotels[Menu.getIndexhotels()] = new Hotel(nom, estrelles, direccio, valoracio, ofertes, ubicacio2);
+//                    }
+//                    Menu.setIndexubicacions(Menu.getIndexubicacions() + 1);
+//                }
+>>>>>>> 86efc94c83bc30085390122682ffdadfbe33fe6e
 
                 
                 Menu.setIndexhotels(Menu.getIndexhotels() + 1);
