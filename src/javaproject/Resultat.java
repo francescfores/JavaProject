@@ -41,18 +41,49 @@ public class Resultat extends javax.swing.JFrame {
         javax.swing.JPanel jPanel4 = new javax.swing.JPanel(new GridLayout(4, 0, 8, 8));
         jPanel4.setBackground(new java.awt.Color(188, 24, 205));
 
+        jPanel4.add(panele);
+        jScrollPane1.setViewportView(jPanel4);
+        
         //entrada que conte una habitacio
-        panele.setLayout(new GridLayout(1, 2, 8, 8));
+        panele.setLayout(new GridLayout(1, 0, 8, 8));
         panele.setBackground(new java.awt.Color(188, 204, 255));
-        panele.setSize(500, 200);
         panele.setBorder(javax.swing.BorderFactory.createTitledBorder("filtres"));
 
-        //imatge de l'entrada
+        //panell que conte l'imatge de l'entrada            
+        panele.add((Component) PanellImatge(new JPanel()));
+
+        //panell que conte el text de l'entrada
+        panele.add((Component) PanellText(new JPanel()));
+
+        
+    }
+
+    public Object Panellnou(JPanel panele) {
         JPanel jPanel7 = new JPanel(new GridLayout(0, 1, 8, 8));
         jPanel7.setBackground(new java.awt.Color(1, 21, 1));
         jPanel7.add((Component) imatge("/javaproject/img/860451_v3_mc.jpeg"));
+        return jPanel7;
+    }
 
-        
+    public Object PanellImatge(JPanel panele) {
+        JPanel jPanel7 = new JPanel(new GridLayout(0, 1, 8, 8));
+        jPanel7.setBackground(new java.awt.Color(1, 21, 1));
+        jPanel7.add((Component) imatge("/javaproject/img/860451_v3_mc.jpeg"));
+        return jPanel7;
+    }
+
+    public Object imatge(String url) {
+        //Imatge de l'habitacio
+        JLabel jLabel4 = new JLabel("LEFT", SwingConstants.LEFT);
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource(url))); // NOI18N       
+        jLabel4.setVerticalAlignment(SwingConstants.TOP);
+        return jLabel4;
+    }
+
+    public Object PanellText(JPanel panele) {
+        JPanel jPanel6 = new JPanel(new GridLayout(7, 1, 0, 0));
+        jPanel6.setBackground(new java.awt.Color(3, 21, 240));
+
         JLabel jLabel5 = new JLabel("Nom");
         JLabel jLabel6 = new JLabel("6");
         JLabel jLabel7 = new JLabel("Estrelles :");
@@ -66,12 +97,6 @@ public class Resultat extends javax.swing.JFrame {
         JLabel jLabel15 = new JLabel("Ubicacio");
         JLabel jLabel16 = new JLabel("10");
 
-        JPanel jPanel6 = new JPanel(new GridLayout(7, 1, 0, 0));
-        jPanel6.setBackground(new java.awt.Color(3, 21, 240));
-
-        panele.add(jPanel7);
-        panele.add(jPanel6);
-
         jPanel6.add(jLabel5);
         jPanel6.add(jLabel6);
         jPanel6.add(jLabel7);
@@ -84,27 +109,7 @@ public class Resultat extends javax.swing.JFrame {
         jPanel6.add(jLabel14);
         jPanel6.add(jLabel15);
         jPanel6.add(jLabel16);
-        /*
-         JPanel jPanel8 = new JPanel(new GridLayout(0, 1, 8, 8));
-         jPanel8.setBackground(new java.awt.Color(1, 21, 1));
-         jPanel8.add(jLabel4);
-         JPanel jPanel9 = new JPanel(new GridLayout(1, 2, 8, 8));
-         jPanel9.setBackground(new java.awt.Color(188, 204, 255));
-         jPanel9.setSize(500, 200);
-         jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder("filtres"));
-         jPanel9.add(jPanel8);
-         jPanel4.add(jPanel9);
-         */
-        jPanel4.add(panele);
-        jScrollPane1.setViewportView(jPanel4);
-    }
-
-    public Object imatge(String url) {
-        //Imatge de l'habitacio
-        JLabel jLabel4 = new JLabel("LEFT", SwingConstants.LEFT);
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource(url))); // NOI18N       
-        jLabel4.setVerticalAlignment(SwingConstants.TOP);
-        return jLabel4;
+        return jPanel6;
     }
 
     /**
