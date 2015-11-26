@@ -14,6 +14,7 @@ import java.io.ObjectOutputStream;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -44,9 +45,8 @@ public class Admin extends javax.swing.JFrame {
     public Admin() throws IOException {
         Menu.hotels.getClass().getName();
         initComponents();
-        
+
         //Menu.setIndexubicacions(Menu.getIndexubicacions()+1);
-        
         fitxernova(fhotels, Menu.hotels);
 
         fitxernova(fclients, Menu.clients);
@@ -61,25 +61,27 @@ public class Admin extends javax.swing.JFrame {
         InsertarDades();
         jComboBox1.addItem("Selecciona un país");
         jComboBox2.addItem("Selecciona un servei");
+
+    }
+
+    public void llistaComboBox() {
         Menu.setIndexubicacions(0);
         while (Menu.ubicacions[Menu.getIndexubicacions()] != null) {
             String paisos = Menu.ubicacions[Menu.getIndexubicacions()].getPais();
 
             jComboBox1.addItem(paisos);
-            Object cmboitem = jComboBox1.getSelectedItem();      
+            Object cmboitem = jComboBox1.getSelectedItem();
             Menu.setIndexubicacions(Menu.getIndexubicacions() + 1);
         }
-        
-        
-         Menu.setIndexserveis(0);
+
+        Menu.setIndexserveis(0);
         while (Menu.serveis[Menu.getIndexserveis()] != null) {
             String nomServei = Menu.serveis[Menu.getIndexserveis()].getNom();
 
             jComboBox2.addItem(nomServei);
-            Object cmboitem = jComboBox2.getSelectedItem();      
-            Menu.setIndexserveis(Menu.getIndexserveis()+ 1);
+            Object cmboitem = jComboBox2.getSelectedItem();
+            Menu.setIndexserveis(Menu.getIndexserveis() + 1);
         }
-
     }
 
     private void InsertarDades() throws IOException {
@@ -828,6 +830,7 @@ public class Admin extends javax.swing.JFrame {
         } catch (java.lang.NumberFormatException e) {
             jTextField21.setText("Les estrelles introduides no són valida torna-ho a probar!!!");
         }
+        llistaComboBox();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -918,20 +921,20 @@ public class Admin extends javax.swing.JFrame {
             numero = Integer.parseInt(jTextField12.getText());
             capacitat = Integer.parseInt(jTextField11.getText());
             capacitat = Integer.parseInt(jTextField11.getText());
-            String servei =   (String) jComboBox2.getSelectedItem();
-            if (servei.equals("Selecciona un servei")){
+            String servei = (String) jComboBox2.getSelectedItem();
+            if (servei.equals("Selecciona un servei")) {
                 jTextField14.setText("Selecciona un servei");
-            }else{
-            jTextField14.setText("Dades insertades correctament!!" + Menu.getIndexhabitacions());
+            } else {
+                jTextField14.setText("Dades insertades correctament!!" + Menu.getIndexhabitacions());
             //Menu.serveis.add(new Servei("cangur", 10));
-            //Menu.serveis.get(i);
-            //Menu.serveis[Menu.getIndexhabitacions()] = new Servei("cangur", 10);
-            //Menu.serveis.add():
-            //creem un array list i li afegim els serveis
+                //Menu.serveis.get(i);
+                //Menu.serveis[Menu.getIndexhabitacions()] = new Servei("cangur", 10);
+                //Menu.serveis.add():
+                //creem un array list i li afegim els serveis
 
-            Menu.habitacions[Menu.indexhabitacions] = new Habitacio(preu, numero, capacitat, servei );
-            Menu.setIndexhabitacions(Menu.getIndexhabitacions() + 1);
-            guardaDades(fhabitacions, Menu.indexhabitacions, Menu.habitacions);
+                Menu.habitacions[Menu.indexhabitacions] = new Habitacio(preu, numero, capacitat, servei);
+                Menu.setIndexhabitacions(Menu.getIndexhabitacions() + 1);
+                guardaDades(fhabitacions, Menu.indexhabitacions, Menu.habitacions);
             }
         } catch (java.lang.NumberFormatException e) {
             jTextField14.setText("Les estrelles introduides no són valida torna-ho a probar!!!");
@@ -975,22 +978,22 @@ public class Admin extends javax.swing.JFrame {
         direccio = jTextField4.getText();
         valoracio = jTextField5.getText();
         ofertes = jTextField7.getText();
-        ubicacio = (String)jComboBox1.getSelectedItem();
+        ubicacio = (String) jComboBox1.getSelectedItem();
         try {
             estrelles = Integer.parseInt(jTextField3.getText());
-            if (ubicacio.equals("Selecciona un país")){
+            if (ubicacio.equals("Selecciona un país")) {
                 jTextField2.setText("Selecciona un país");
-            }else{
-            jTextField2.setText("Dades insertades correctament!!" + Menu.getIndexhotels());
-            Menu.hotels[Menu.getIndexhotels()] = new Hotel(nom, estrelles, direccio, valoracio, ofertes, ubicacio);
-            Menu.setIndexhotels(Menu.getIndexhotels() + 1);
-            guardaDades(fhotels, Menu.indexhotels, Menu.hotels);
+            } else {
+                jTextField2.setText("Dades insertades correctament!!" + Menu.getIndexhotels());
+                Menu.hotels[Menu.getIndexhotels()] = new Hotel(nom, estrelles, direccio, valoracio, ofertes, ubicacio);
+                Menu.setIndexhotels(Menu.getIndexhotels() + 1);
+                guardaDades(fhotels, Menu.indexhotels, Menu.hotels);
             }
         } catch (java.lang.NumberFormatException e) {
             jTextField2.setText("Les estrelles introduides no són valida torna-ho a probar!!!");
-            
+
         }
-        
+        revalidate();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
