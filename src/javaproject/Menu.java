@@ -16,6 +16,9 @@ import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.UIManager.*;
 
 /**
  *
@@ -62,6 +65,7 @@ public class Menu extends javax.swing.JFrame {
     public static void setIndexclients(int indexclients) {
         Menu.indexclients = indexclients;
     }
+
     public static Ubicacio[] getUbicacions() {
         return ubicacions;
     }
@@ -71,13 +75,13 @@ public class Menu extends javax.swing.JFrame {
     }
 
     private static final int DIM = 20;
-                        // Indica si s'ha llegit o no el fitxer de llista
+    // Indica si s'ha llegit o no el fitxer de llista
     static int indexhotels;
     static int indexhabitacions;
     static int indexclients;
-    static int indexserveis; 
-    static int indexubicacions; 
-    
+    static int indexserveis;
+    static int indexubicacions;
+
     //cambiar a arraylist
     static Hotel[] hotels = new Hotel[DIM];
     static Habitacio[] habitacions = new Habitacio[DIM];
@@ -86,23 +90,87 @@ public class Menu extends javax.swing.JFrame {
     static Servei[] serveis = new Servei[DIM];
     static Ubicacio[] ubicacions = new Ubicacio[DIM];
 
-    
-    
-    //static ArrayList <Servei> serveis= new ArrayList <>();
+    static File fhotels = new File("hotels.dat");         // El fitxer físic se diu "dades.dat". Si no s'especifica cap directori s'usa el del projecte. 
+    static File fhabitacions = new File("habitacions.dat");
+    static File fclients = new File("clients.dat");
+    static File fserveis = new File("serveis.dat");
+    static File fubicacions = new File("ubicacions.dat");
+    static File freserves = new File("reserves.dat");
+    static File ffactures = new File("ffactures.dat");
+    static boolean llegit = false;
 
+    static String search;
+
+    public static String getSearch() {
+        return search;
+    }
+
+    public static void setSearch(String search) {
+        Menu.search = search;
+    }
+    //static ArrayList <Servei> serveis= new ArrayList <>();
     /**
      * Creates new form Menu
      */
-    public Menu() throws IOException {
+    public Menu() throws IOException, ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
+        UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+        LookAndFeelInfo[] lista = UIManager.getInstalledLookAndFeels();
+
+        for (int i = 0; i < lista.length; i++) {
+            System.out.println(lista[i].getClassName());
+        }
         initComponents();
-         /*serveis[0]=new Servei("Cangur",50);
-         serveis[1]=new Servei("Botons",25);
-         serveis[2]=new Servei("Fisio",40);
-         serveis[3]=new Servei("Jacuzzi",60);
-         serveis[4]=new Servei("Despertador",20);  */       
-        
+        fitxernova(fhotels, Menu.hotels);
+
+        fitxernova(fclients, Menu.clients);
+
+        fitxernova(fhabitacions, Menu.habitacions);
+
+        fitxernova(fserveis, Menu.serveis);
+
+        fitxernova(fubicacions, Menu.ubicacions);
+        //Anotem que hem llegit el fitxer
+        llegit = true;
     }
 
+    public static <T> void fitxernova(File fitxer, T vector[]) throws IOException {
+        //jButton8.setVisible(false);
+        int index;
+        if (fitxer.exists()) {
+                        //LLegim el contingut del fitxer i ho guardem al vector
+
+            //Declarem el fluxe d'entrada
+            ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(fitxer));
+
+            //Índex per recorrer el vector inicialitzat a -1
+            index = -1;
+
+            //El bucle finalitzarà quan haguem llegit tot el fitxer
+            while (true) {
+                try {
+                    // = (Myclass) //hem de especificar el nom de la classe es a dir un casting dinamic
+                    //Menu.hotels[++index] = Hotel.class.cast(entrada.readObject());
+                    vector[++index] = (T) entrada.readObject();
+                } //Si arribem al final del vector ho indiquem, decrementem l'índex i sortim del bucle infinit
+                catch (ArrayIndexOutOfBoundsException ex) {
+                    //System.err.println("No cap tot el fitxer dins al vector!!");
+                    index--;
+                    break;
+                } //Quan arribem al final del fitxer sortim del bucle infinit
+                catch (Exception ex) {
+                    index--;
+                    break;
+                }
+            }
+            //Molt important!!. S'ha de tancar el fitxer.
+            entrada.close();
+            //jTextField1.setText("Fitxer llegit correctament!!");
+        } else {
+            //jTextField1.setText("El fitxer ja s'ha llegit o encara no existeix!!");
+            //index = -1;
+        }
+
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -233,10 +301,14 @@ public class Menu extends javax.swing.JFrame {
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
         // TODO add your handling code here:
+        
+        Menu.setSearch(jTextField2.getText());
+        System.out.println(Menu.getSearch());
         Resultat ob = null;
         try {
             ob = new Resultat();
@@ -244,17 +316,17 @@ public class Menu extends javax.swing.JFrame {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
         ob.setVisible(true);
-
+        
     }//GEN-LAST:event_jToggleButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         /*Login ob = null;
-        try {
-            ob = new Login();
-        } catch (Exception ex) {
-            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        ob.setVisible(true);*/
+         try {
+         ob = new Login();
+         } catch (Exception ex) {
+         Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+         }
+         ob.setVisible(true);*/
         Admin ob = null;
         try {
             ob = new Admin();
@@ -266,16 +338,16 @@ public class Menu extends javax.swing.JFrame {
 
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        
+
         this.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jTextField2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusGained
-        
+
     }//GEN-LAST:event_jTextField2FocusGained
 
     private void jTextField2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField2MouseClicked
-       jTextField2.setText("");
+        jTextField2.setText("");
     }//GEN-LAST:event_jTextField2MouseClicked
 
     /**
@@ -311,6 +383,14 @@ public class Menu extends javax.swing.JFrame {
                 try {
                     new Menu().setVisible(true);
                 } catch (IOException ex) {
+                    Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (InstantiationException ex) {
+                    Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IllegalAccessException ex) {
+                    Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (UnsupportedLookAndFeelException ex) {
                     Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
