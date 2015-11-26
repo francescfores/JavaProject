@@ -62,4 +62,9 @@ public class Ubicacio implements Serializable{
         this.codiPostal = codiPostal;
     }
 
+    @Override
+    public String toString() {
+        return poblacio+" "+provincia;
+    }
+
 }

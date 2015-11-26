@@ -32,10 +32,30 @@ public class Resultat extends javax.swing.JFrame {
      * Creates new form Resultat
      */
     public Resultat() {
-
+        
         initComponents();
-
+        
         Resultats(new JPanel());
+        llistaComboBox();
+    }
+public  void llistaComboBox() {
+        Menu.setIndexubicacions(0);
+        while (Menu.ubicacions[Menu.getIndexubicacions()] != null) {
+            String paisos = Menu.ubicacions[Menu.getIndexubicacions()].getPais();
+
+            jComboBox2.addItem(paisos);
+            Object cmboitem = jComboBox2.getSelectedItem();
+            Menu.setIndexubicacions(Menu.getIndexubicacions() + 1);
+        }
+
+        Menu.setIndexserveis(0);
+        while (Menu.serveis[Menu.getIndexserveis()] != null) {
+            String nomServei = Menu.serveis[Menu.getIndexserveis()].getNom();
+
+            jComboBox3.addItem(nomServei);
+            Object cmboitem = jComboBox3.getSelectedItem();
+            Menu.setIndexserveis(Menu.getIndexserveis() + 1);
+        }
     }
 
     public void Resultats(JPanel panele) {
@@ -195,7 +215,16 @@ public class Resultat extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("filtres"));
         jPanel2.setToolTipText("");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBox2MouseClicked(evt);
+            }
+        });
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
 
         jList1.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -204,7 +233,11 @@ public class Resultat extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jList1);
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -309,6 +342,18 @@ public class Resultat extends javax.swing.JFrame {
     private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_jButton25ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox3ActionPerformed
+
+    private void jComboBox2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox2MouseClicked
+            Resultats(new JPanel());
+    }//GEN-LAST:event_jComboBox2MouseClicked
     /*
      public void initComponents2() {
 
